@@ -1,0 +1,36 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start >
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Personal Account</ion-title>
+    <ion-buttons end >
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="ios-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <p class="myTitle">Accounts</p>
+  <!-- account Name,account Number and currency -->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-4 col-lg-3 *ngFor="let item of accounts">
+        <div class="account" (click)="goTo('AccountDetailsPage')">
+          <p>{{item.name}}</p>
+
+          <p class="countNum">
+            Acc Num:{{item.accNumber}}
+          </p>
+
+          <p>Ksh {{item.currency}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

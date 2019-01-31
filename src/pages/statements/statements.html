@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start >
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Statements</ion-title>
+    <ion-buttons end >
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="ios-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <button 
+    ion-button 
+    block 
+    color="color2" 
+    (click)="handleEStatement()">E-Statement</button> 
+
+</ion-content>
+ 

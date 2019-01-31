@@ -1,0 +1,7 @@
+{
+  "name": "iTeller",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>SIGN ME UP</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div class="appForm">
+    <ion-list>
+      <!-- Member No input -->
+      <ion-item>
+        <ion-label floating>
+          Member Number
+        </ion-label>
+        <ion-icon name="person"></ion-icon>
+        <ion-input style="font-size: 1.3rem;" [(ngModel)]="member_number" type="number"></ion-input>
+      </ion-item>
+      <!-- ID input -->
+      <ion-item>
+        <ion-label floating>
+          ID Number
+        </ion-label>
+        <ion-icon name="person"></ion-icon>
+        <ion-input style="font-size: 1.3rem;" [(ngModel)]="id_number" type="number"></ion-input>
+      </ion-item>
+
+      <!-- Phone Number input -->
+      <ion-item>
+				<ion-label floating>Phone Number</ion-label>
+        <ion-icon name="call"></ion-icon>
+				<ion-input style="font-size: 1.3rem;" [(ngModel)]="phone_number" type="number"></ion-input>
+      </ion-item>
+
+      <!-- password input -->
+      <!--
+      <ion-item>
+        <ion-label floating>Set P.I.N</ion-label>
+        <ion-icon name="ios-lock-outline" item-left></ion-icon>
+        <ion-input type="password"></ion-input>
+      </ion-item>  -->    
+    </ion-list>
+  </div>
+  <br/>
+  <div>
+  <br/>
+    <ion-item>
+      <ion-label 
+      color="primarytext" 
+      style="font-size: 1.2rem;"><strong>Agree to our <a href><u>Terms</u></a> & <a href><u>Conditions</u></a></strong></ion-label>
+
+      <ion-checkbox color="primarytext" [(ngModel)]="terms" (ionChange)="updateTerms()"></ion-checkbox>
+    </ion-item>	    
+  </div>
+
+  <div>
+  <br/>
+    <!--<button ion-button block color="color2" (click)="doCancel()">Sign in</button>-->
+    <button ion-button block color="color2" (click)="doLogin('SummaryPage')">Sign Up</button>
+  </div>  
+  <!--<button ion-button block color="color2" (click)="doLogin('SummaryPage')">Sign up</button>-->
+</ion-content>

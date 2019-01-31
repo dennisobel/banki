@@ -1,0 +1,13 @@
+page-sendmpesa {
+    .list .item-radio input:checked ~ .item-content {
+        background-color: #557cba;  
+        color: white;
+      }
+      .list .item-radio .item-content    {
+        background-color: #444;
+        color: white;
+      }
+      .list .item-radio .radio-icon    {
+        color: white;
+      }
+}
