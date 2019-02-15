@@ -33,7 +33,7 @@ export class SignInPage {
       console.log("already authorized")
       this.loading.dismiss();
       this.navCtrl.setRoot(SummaryPage)
-    }/*,(err)=>{
+    },(err)=>{
       this.loading.dismiss()
       let alert = this.alertCtrl.create({
         title:"CONNECTION ERROR",
@@ -50,8 +50,8 @@ export class SignInPage {
         ]        
       })
 
-      alert.present()
-    }*/)
+      // alert.present()
+    })
     .catch((err)=>{
       console.log(err)
       this.loading.dismiss()
@@ -70,7 +70,7 @@ export class SignInPage {
         ]        
       })
 
-      alert.present()      
+      // alert.present()      
     })
     
   }
@@ -78,11 +78,14 @@ export class SignInPage {
   showLoader(){ 
     this.loading = this.loadingCtrl.create({
         content: 'Authenticating...'
+        
     });
     this.loading.present();
   } 
 
   doLogin(page) {
+    console.log("Inside Login...")
+    
     
     let data = {
       passcode:this.password,
@@ -90,18 +93,25 @@ export class SignInPage {
     }
 
     this.http.login(data).then((val:any)=>{
-      // console.log(val)
+      console.log("Login Values: ",val)
+      this.loading.dismiss()
       if(val.success === true){
-        this.navCtrl.setRoot(page);
+        this.navCtrl.setRoot(page,{data:data});
       }
     })
     
   }
 
+
   // Call Forgot Password Modal
   presentModal(modalPage) {
     let modal = this.modalCtrl.create(modalPage);
     modal.present(); 
+  }
+
+  doUnlock(page){
+    let modal = this.modalCtrl.create(page)
+    modal.present()
   }
 
 }

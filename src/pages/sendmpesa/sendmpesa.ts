@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { HttpProvider } from "../../providers/http/http"
 
 @IonicPage()
 @Component({
@@ -16,6 +17,8 @@ export class SendmpesaPage {
   constructor(
     private navCtrl: NavController, 
     private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController,
+    private httpHelper: HttpProvider,
     private navParams: NavParams,
     private storage: Storage) {
   }
@@ -24,16 +27,25 @@ export class SendmpesaPage {
     console.log('ionViewDidLoad SendmpesaPage');
   }
 
-  handleSelf(){
+  onSelectSelf(){
+
+
     this.storage.get('loginData').then(res=>{  
+      console.log(res)
+
+      this.httpHelper.getuser(res.membernumber).then(data=>{
+        console.log("USER:",data)
+      })
+
       return res
     }).then((res)=>{
-      (<HTMLInputElement>document.getElementById('phone')).value = res.data.phonenumber  
-      console.log((<HTMLInputElement>document.getElementById('phone')).value)  
+      
+      /*(<HTMLInputElement>document.getElementById('phone')).value = res.data.phonenumber  
+      console.log((<HTMLInputElement>document.getElementById('phone')).value)  */
     })
   }
 
-  handleOther(){
+  onSelectOther(){
     let alert = this.alertCtrl.create({
       title: "Choose Other Number",
       inputs: [
@@ -54,8 +66,10 @@ export class SendmpesaPage {
         {
           text: "Ok",
           handler: data => {
+            /*
             (<HTMLInputElement>document.getElementById('phone')).value = data  
             console.log((<HTMLInputElement>document.getElementById('phone')).value)
+            */
           }
         }
       ]
@@ -65,8 +79,13 @@ export class SendmpesaPage {
   }
 
   handleContinue(){
+    let loading = this.loadingCtrl.create({
+        content: 'Processing Send To MPesa Payment...',
+        duration: 3000
+    });
+    loading.present();      
 
-
+    
     let alert = this.alertCtrl.create({
       title:"Confirm M-PESA Transaction",
       message: `
@@ -95,7 +114,11 @@ export class SendmpesaPage {
 
     })
 
-    alert.present()
+    alert.present() 
   }
+
+  logOut(){
+    this.navCtrl.setRoot('WelcomePage');
+  }  
 
 }

@@ -1,4 +1,4 @@
-webpackJsonp([25],{
+webpackJsonp([31],{
 
 /***/ 122:
 /***/ (function(module, exports) {
@@ -23,102 +23,126 @@ webpackEmptyAsyncContext.id = 122;
 var map = {
 	"../pages/account-details/account-details.module": [
 		319,
-		24
+		30
 	],
 	"../pages/add-account/add-account.module": [
 		320,
-		23
+		29
 	],
 	"../pages/address-details/address-details.module": [
 		321,
-		22
+		28
 	],
 	"../pages/banktransfer/banktransfer.module": [
 		322,
-		21
+		27
 	],
 	"../pages/beneficiaries/beneficiaries.module": [
 		323,
-		20
+		26
 	],
 	"../pages/billmanagement/billmanagement.module": [
 		324,
-		19
+		25
+	],
+	"../pages/buy-goods/buy-goods.module": [
+		325,
+		24
 	],
 	"../pages/contact-us/contact-us.module": [
-		325,
-		18
+		326,
+		23
 	],
 	"../pages/currency-convertor/currency-convertor.module": [
-		326,
-		17
+		327,
+		22
 	],
 	"../pages/deposit/deposit.module": [
-		327,
-		16
+		328,
+		21
 	],
 	"../pages/find-us/find-us.module": [
-		328,
-		15
+		329,
+		20
 	],
 	"../pages/forgot-password/forgot-password.module": [
-		329,
-		14
+		330,
+		19
+	],
+	"../pages/loan-balances/loan-balances.module": [
+		331,
+		18
+	],
+	"../pages/loan-eligibility/loan-eligibility.module": [
+		332,
+		17
 	],
 	"../pages/loans/loans.module": [
-		330,
-		13
+		333,
+		16
+	],
+	"../pages/lock/lock.module": [
+		334,
+		15
+	],
+	"../pages/paybill/paybill.module": [
+		335,
+		14
 	],
 	"../pages/personal-account/personal-account.module": [
-		331,
-		12
+		336,
+		13
 	],
 	"../pages/profile/profile.module": [
-		332,
+		337,
+		12
+	],
+	"../pages/repay-loans/repay-loans.module": [
+		338,
 		11
 	],
 	"../pages/sendmpesa/sendmpesa.module": [
-		333,
+		339,
 		10
 	],
 	"../pages/setting/setting.module": [
-		334,
+		340,
 		9
 	],
 	"../pages/sign-in/sign-in.module": [
-		336,
+		342,
 		0
 	],
 	"../pages/sign-up/sign-up.module": [
-		337,
+		343,
 		8
 	],
 	"../pages/statements/statements.module": [
-		338,
+		344,
 		7
 	],
 	"../pages/summary/summary.module": [
-		335,
+		341,
 		6
 	],
 	"../pages/transactions-details/transactions-details.module": [
-		340,
+		346,
 		5
 	],
 	"../pages/transactions/transactions.module": [
-		339,
+		345,
 		4
 	],
 	"../pages/transfer/transfer.module": [
-		341,
+		347,
 		3
 	],
 	"../pages/update-profile/update-profile.module": [
-		342,
+		348,
 		2
 	],
 	"../pages/welcome/welcome.module": [
-		343,
+		349,
 		1
 	]
 };
@@ -146,7 +170,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_socket_io__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng_socket_io__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(35);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -206,18 +230,25 @@ var SocketProvider = (function () {
         this.socket.emit('signUp', data);
     };
     // Enquiries
-    SocketProvider.prototype.balanceEnq = function () {
-        var _this = this;
-        this.storage.get('loginData')
-            .then(function (res) {
-            var body = __assign({}, res);
-            return body;
+    SocketProvider.prototype.balanceEnq = function (data) {
+        // this.storage.get('loginData')
+        // .then(res=>{
+        //   let body = {
+        //     ...res
+        //   }  
+        //   return body
+        // })
+        // .then((res)=>{
+        //   // this.storage.set("login",(res.data))
+        //   this.socket.emit("balanceEnq",res)
+        //   console.log("heree come res of balenq",res)
+        // })
+        /*
+        return new Promise((resolve,reject)=>{
+          resolve(this.socket.emit("balanceEnq",data))
         })
-            .then(function (res) {
-            // this.storage.set("login",(res.data))
-            _this.socket.emit("balanceEnq", res);
-            console.log("heree come res of balenq", res);
-        });
+        */
+        this.socket.emit("balanceEnq", data);
     };
     SocketProvider.prototype.miniStatEnq = function (data) {
         this.socket.emit('miniStatEnq', data);
@@ -236,18 +267,14 @@ var SocketProvider = (function () {
     // Apply Loan
     SocketProvider.prototype.applyMLoan = function (data) {
         var _this = this;
+        console.log("mloan data: ", data);
         return new Promise(function (resolve, reject) {
             resolve(_this.socket.emit('applyMLoan', data));
         });
     };
-    SocketProvider.prototype.applyExpressLoan = function (data) {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            resolve(_this.socket.emit('applyExpressLoan', data));
-        });
-    };
     SocketProvider.prototype.applyFosaAdvance = function (data) {
         var _this = this;
+        console.log("fosa data: ", data);
         return new Promise(function (resolve, reject) {
             resolve(_this.socket.emit('applyFosaAdvance', data));
         });
@@ -257,13 +284,6 @@ var SocketProvider = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             resolve(_this.socket.emit('payLoan', data));
-        });
-    };
-    // Guarantees/Guarantors
-    SocketProvider.prototype.guaranteesGuarantors = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            resolve(_this.socket.emit('guaranteesGuarantors'));
         });
     };
     // Funds Transfer
@@ -306,6 +326,20 @@ var SocketProvider = (function () {
             _this.socket.emit("airtimePurchase", res);
         });
     };
+    SocketProvider.prototype.kopaAirtime = function (data) {
+        var _this = this;
+        console.log("Inside Kopa Airtime");
+        this.storage.get('loginData')
+            .then(function (res) {
+            var body = __assign({ data: data }, res);
+            console.log(body);
+            return body;
+        })
+            .then(function (res) {
+            console.log("airtime loan res:", res);
+            _this.socket.emit("kopaAirtime", res);
+        });
+    };
     SocketProvider.prototype.tokenPurchase = function (data) {
         var _this = this;
         this.storage.get('loginData')
@@ -324,12 +358,81 @@ var SocketProvider = (function () {
         this.storage.get('loginData')
             .then(function (res) {
             var body = __assign({}, res);
-            console.log(body);
+            console.log("LOGIN DATA IN E-STAT", body);
             return body;
         })
             .then(function (res) {
             console.log("e-stat:", res);
             _this.socket.emit("estatement", res);
+        });
+    };
+    // Guarantees/Guarantors
+    SocketProvider.prototype.getGuarantors = function () {
+        var _this = this;
+        this.storage.get('loginData')
+            .then(function (res) {
+            var body = __assign({}, res);
+            console.log(body);
+            return body;
+        })
+            .then(function (res) {
+            console.log("GUARANTORS:", res);
+            _this.socket.emit("guarantors", res);
+        });
+    };
+    SocketProvider.prototype.getGuarantees = function () {
+        var _this = this;
+        this.storage.get('loginData')
+            .then(function (res) {
+            var body = __assign({}, res);
+            console.log(body);
+            return body;
+        })
+            .then(function (res) {
+            console.log("GUARANTEES:", res);
+            _this.socket.emit("guarantees", res);
+        });
+    };
+    SocketProvider.prototype.loanEligibility = function (data) {
+        // this.storage.get('loginData')
+        // .then(res=>{
+        //   console.log(res)
+        //   return res
+        // })
+        // .then((res)=>{
+        //   console.log("loan eligibility:",res)
+        //   this.socket.emit("loanEligibility",res)
+        // })     
+        this.socket.emit("loanEligibility", data);
+    };
+    SocketProvider.prototype.loanBalances = function (data) {
+        console.log("navparams data: ", data);
+        // this.storage.get('loginData')
+        // .then(res=>{
+        //   console.log(res)
+        //   return res
+        // })
+        // .then((res)=>{
+        //   console.log("loan balances:",res)
+        //   this.socket.emit("loanBalances",res)
+        // })     
+        this.socket.emit("loanBalances", data);
+    };
+    SocketProvider.prototype.depositFromMpesa = function (data) {
+        console.log("DEPOSIT TO MPESA DATA: ", data);
+        this.socket.emit('depositFromMpesa', data);
+    };
+    SocketProvider.prototype.getMemberAccounts = function () {
+        var _this = this;
+        this.storage.get('loginData')
+            .then(function (res) {
+            var body = __assign({}, res);
+            console.log(body);
+            return body;
+        })
+            .then(function (res) {
+            console.log("MEMBERACCOUNTS:", res);
+            _this.socket.emit("memberAccounts", res);
         });
     };
     return SocketProvider;
@@ -349,11 +452,11 @@ SocketProvider = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HttpProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(35);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -456,7 +559,7 @@ var HttpProvider = (function () {
                 .map(function (res) { return res.json(); })
                 .subscribe(function (res) {
                 console.log("res:", res);
-                _this.storage.set('loginData', res);
+                _this.storage.set('loginData', data);
                 resolve(res);
             });
             // })      
@@ -510,7 +613,7 @@ var HttpProvider = (function () {
             });
         });
     };
-    HttpProvider.prototype.getuser = function () {
+    HttpProvider.prototype.getuser = function (data) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.offline.getUserURL)
@@ -540,8 +643,9 @@ HttpProvider = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -555,23 +659,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MyApp = (function () {
-    function MyApp(platform, statusBar, splashScreen) {
+    function MyApp(platform, statusBar, splashScreen, storage) {
         this.platform = platform;
         this.statusBar = statusBar;
         this.splashScreen = splashScreen;
+        this.storage = storage;
         this.rootPage = 'WelcomePage';
         this.animateVarible = false;
         this.initializeApp();
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Summary', component: 'SummaryPage', icon: 'banki-summary' },
-            { title: 'Personal Accounts', component: 'PersonalAccountPage', icon: 'banki-user' },
-            { title: 'Benficiariers', component: 'BeneficiariesPage', icon: 'banki-exchange' },
+            { title: 'Main Menu', component: 'SummaryPage', icon: 'banki-summary' },
+            { title: 'Savings and Balances', component: 'PersonalAccountPage', icon: 'banki-user' },
+            // { title: 'Benficiariers', component: 'BeneficiariesPage',icon:'banki-exchange' },
             { title: 'Setting', component: 'SettingPage', icon: 'banki-setting' },
             { title: 'Profile', component: 'ProfilePage', icon: 'banki-user-1' },
             { title: 'Currancy Converter', component: 'CurrencyConvertorPage', icon: 'banki-converter' },
-            { title: 'Transfer Payment', component: 'TransferPage', icon: 'banki-transfer' },
+            // { title: 'Internal Transfer', component: 'TransferPage',icon:'banki-transfer' },
             { title: 'Find us', component: 'FindUsPage', icon: 'banki-location' },
             { title: 'Contact us', component: 'ContactUsPage', icon: 'banki-phone' },
         ];
@@ -586,9 +692,14 @@ var MyApp = (function () {
         });
     };
     MyApp.prototype.openPage = function (page) {
+        var loginData;
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
-        this.nav.setRoot(page);
+        this.storage.get('loginData').then(function (data) {
+            console.log("side menu data:", data);
+            loginData = data;
+        });
+        this.nav.setRoot(page, loginData);
     };
     return MyApp;
 }());
@@ -599,7 +710,10 @@ __decorate([
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/app/app.html"*/'<ion-menu [content]="content" swipeEnabled="false" type="overlay">\n  <ion-content>\n    <ion-list>\n      <ion-item menuClose  *ngFor="let p of pages" (click)="openPage(p.component)">\n        <ion-icon class="{{p.icon}}" item-left></ion-icon>\n        {{p.title}}\n      </ion-item>\n    </ion-list>\n  </ion-content>\n  <ion-footer>\n    <button ion-button clear menuClose (click)="openPage(\'WelcomePage\')">Log out</button>\n  </ion-footer>\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content  [class.animateApp]="animateVarible==true" swipeBackEnabled="false"></ion-nav> '/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+        __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
@@ -629,11 +743,11 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_camera__ = __webpack_require__(223);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(180);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(181);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_t24_t24__ = __webpack_require__(318);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_http_http__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_socket_socket__ = __webpack_require__(221);
@@ -691,14 +805,20 @@ AppModule = __decorate([
                     { loadChildren: '../pages/banktransfer/banktransfer.module#BanktransferPageModule', name: 'BanktransferPage', segment: 'banktransfer', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/beneficiaries/beneficiaries.module#BeneficiariesPageModule', name: 'BeneficiariesPage', segment: 'beneficiaries', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/billmanagement/billmanagement.module#BillmanagementPageModule', name: 'BillmanagementPage', segment: 'billmanagement', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/buy-goods/buy-goods.module#BuyGoodsPageModule', name: 'BuyGoodsPage', segment: 'buy-goods', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/contact-us/contact-us.module#ContactUsPageModule', name: 'ContactUsPage', segment: 'contact-us', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/currency-convertor/currency-convertor.module#CurrencyConvertorPageModule', name: 'CurrencyConvertorPage', segment: 'currency-convertor', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/deposit/deposit.module#DepositPageModule', name: 'DepositPage', segment: 'deposit', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/find-us/find-us.module#FindUsPageModule', name: 'FindUsPage', segment: 'find-us', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/forgot-password/forgot-password.module#ForgotPasswordPageModule', name: 'ForgotPasswordPage', segment: 'forgot-password', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/loan-balances/loan-balances.module#LoanBalancesPageModule', name: 'LoanBalancesPage', segment: 'loan-balances', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/loan-eligibility/loan-eligibility.module#LoanEligibilityPageModule', name: 'LoanEligibilityPage', segment: 'loan-eligibility', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/loans/loans.module#LoansPageModule', name: 'LoansPage', segment: 'loans', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/lock/lock.module#LockPageModule', name: 'LockPage', segment: 'lock', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/paybill/paybill.module#PaybillPageModule', name: 'PaybillPage', segment: 'paybill', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/personal-account/personal-account.module#PersonalAccountPageModule', name: 'PersonalAccountPage', segment: 'personal-account', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/repay-loans/repay-loans.module#RepayLoansPageModule', name: 'RepayLoansPage', segment: 'repay-loans', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/sendmpesa/sendmpesa.module#SendmpesaPageModule', name: 'SendmpesaPage', segment: 'sendmpesa', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/setting/setting.module#SettingPageModule', name: 'SettingPage', segment: 'setting', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/summary/summary.module#SummaryPageModule', name: 'SummaryPage', segment: 'summary', priority: 'low', defaultHistory: [] },
@@ -747,11 +867,11 @@ AppModule = __decorate([
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return T24Provider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(181);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(35);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];

@@ -23,7 +23,7 @@
         <div class="avatarContent">
           <img src="assets/img/profile.png"/>
           <div>
-            <p>Ksh {{fosaBal}}</p>
+            <h5>Ksh {{fosaBal}}</h5>
             <ion-item>
               <ion-range disabled="true" [(ngModel)]="fosarange"  ></ion-range>
             </ion-item>
@@ -31,10 +31,12 @@
           </div>
         </div>
       </ion-col>
+      
       <ion-col col>
         <div class="loginInfo">
-          <h5>Welcome</h5>
-          <p>{{name}}</p>
+          <h3>Welcome</h3>
+          <h2>{{name}}</h2>
+          <!--
           <p class="myLabel">Last Successful Login</p>
           <p>
             <span>Dec 2018</span>
@@ -48,8 +50,10 @@
             -
             <span>5:30:28 AM</span>
           </p>
+          -->
         </div>
       </ion-col>
+      
     </ion-row>
   </ion-grid>
 
@@ -78,75 +82,144 @@
 
   <!-- most use -->
   <div class="mostUse">
-    <p class="myTitle">Most Use</p>
+    <p class="myTitle">Our Services</p>
+    <hr>
+    <br>
     <ion-grid>
-      <ion-row>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('TransferPage')">
-            <ion-img src="assets/icon/transfer.svg"></ion-img>
-            <p>Funds Transfer</p>
-          </button>
-        </ion-col>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('CurrencyConvertorPage')">
-            <ion-img src="assets/icon/convert.svg"></ion-img>
-            <p>Currency Converter</p>
-          </button>
-        </ion-col>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('BeneficiariesPage')" >
-            <ion-img src="assets/icon/group.svg"></ion-img>
-            <p>Benficiaries</p>
-          </button>
-        </ion-col>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('SettingPage')">
-            <ion-img src="assets/icon/settings.svg"></ion-img>
-            <p>Setting</p>
-          </button>
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('BillmanagementPage')">
-            <ion-img src="assets/icon/payment.svg"></ion-img>
-            <p>Utilities And Bills</p>
-          </button>
-        </ion-col>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('BanktransferPage')">
-            <ion-img src="assets/icon/transfer-money.svg"></ion-img>
-            <p>Bank Transfer</p>
-          </button>
-        </ion-col>
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('DepositPage')">
-            <ion-img src="assets/icon/wallet.svg"></ion-img>
-            <p>Deposit</p>
-          </button>
-        </ion-col>  
-        <ion-col col-3>
-          <button block ion-button (click)="goTo('SendmpesaPage')">
-            <ion-img src="assets/icon/documents.svg"></ion-img>
-            <p>Send Mpesa</p>
+    <ion-row>
+      <ion-col col-4>
+          <button block ion-button (click)="goTo('PersonalAccountPage')">
+            <ion-img height="80" width="80" src="assets/reicons/savingsandbalances.png"></ion-img>
+            <p>Savings Balances</p>
           </button>        
-        </ion-col>  
-      </ion-row>
-      <ion-row>
-        <ion-col col-3>
+      </ion-col>
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('LoanBalancesPage')">
+            <ion-img height="80" width="80" src="assets/reicons/loansandbalances.png"></ion-img>
+            <p>Loan Balances</p>
+          </button>        
+        </ion-col>   
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('LoanEligibilityPage')">
+            <ion-img height="80" width="80" src="assets/reicons/loanseligibility.png"></ion-img>
+            <p>Loan Eligibility</p>
+          </button>        
+        </ion-col>             
+    </ion-row>
+    <br>
+
+    <ion-row>
+        <ion-col col-4>
           <button block ion-button (click)="goTo('StatementsPage')">
-            <ion-img src="assets/icon/documents.svg"></ion-img>
+            <ion-img height="80" width="80" src="assets/reicons/Statements.png"></ion-img>
             <p>Statements</p>
           </button>        
         </ion-col> 
-        <ion-col col-3>
+
+        <ion-col col-4>
           <button block ion-button (click)="goTo('LoansPage')">
-            <ion-img src="assets/icon/loan.svg"></ion-img>
-            <p>Loans</p>
+            <ion-img height="80" width="80" src="assets/reicons/requestloan.png"></ion-img>
+            <p>Request Loan</p>
+          </button>        
+        </ion-col>   
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('RepayLoansPage')">
+            <ion-img height="80" width="80" src="assets/reicons/repayloan.png"></ion-img>
+            <p>Repay Loans</p>
           </button>        
         </ion-col>               
-      </ion-row>      
+    </ion-row>
+
+    <br>
+
+    <ion-row>
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('DepositPage')">
+            <ion-img height="80" width="80" src="assets/reicons/depositfrommpesa.png"></ion-img>
+            <p>Deposit From MPesa</p>
+          </button>
+        </ion-col>   
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('SendmpesaPage')">
+            <ion-img height="80" width="80" src="assets/reicons/sendtompesa.png"></ion-img>
+            <p>Send To Mpesa</p>
+          </button>        
+        </ion-col>    
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('BillmanagementPage')">
+            <ion-img height="80" width="80" src="assets/reicons/buyairtimeandtokens.png"></ion-img>
+            <p>Buy Tokens and Airtime</p>
+          </button>
+        </ion-col>                
+    </ion-row>
+
+    <br>
+
+    <ion-row>
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('PaybillPage')">
+            <ion-img height="80" width="80" src="assets/reicons/paybill.png"></ion-img>
+            <p>Paybill</p>
+          </button>
+        </ion-col>  
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('BuyGoodsPage')">
+            <ion-img height="80" width="80" class="image" src="assets/reicons/buygoods.png"></ion-img>
+            <p>Buy Goods</p>
+          </button>
+        </ion-col> 
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('TransferPage')">
+            <ion-img height="80" width="80" src="assets/reicons/internaltransfer.png"></ion-img>
+            <p>Internal Funds Transfer</p>
+          </button>
+        </ion-col>                    
+    </ion-row>
+
+    <br>
+
+    <ion-row>
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('BanktransferPage')">
+            <ion-img height="80" width="80" src="assets/reicons/transfertobank.png"></ion-img>
+            <p>Bank Transfer</p>
+          </button>
+        </ion-col>    
+    </ion-row>
+
+    <!--
+      <ion-row>
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('CurrencyConvertorPage')">
+            <ion-img src="assets/icon/convert.png"></ion-img>
+            <p>Currency Converter</p>
+          </button>
+        </ion-col>
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('BeneficiariesPage')" >
+            <ion-img src="assets/icon/group.png"></ion-img>
+            <p>Benficiaries</p>
+          </button>
+        </ion-col>
+
+        <ion-col col-4>
+          <button block ion-button (click)="goTo('SettingPage')">
+            <ion-img src="assets/icon/settings.png"></ion-img>
+            <p>Setting</p>
+          </button>
+        </ion-col>          
+
+      </ion-row>     
+
+    -->       
     </ion-grid>
 
   </div>

@@ -43,11 +43,52 @@ export class StatementsPage {
     console.log('ionViewDidLoad StatementsPage');
   }
 
-  handleEStatement(){
-    console.log("handle e-statement")
+  handleEStatement(){    
     this.socketHelper.eStatement()
 
   }
+
+  handleGuarantorStatement(){    
+    this.socketHelper.getGuarantors()
+    let alert = this.alertCtrl.create({
+      title:"GUARANTORS LIST",
+      message:"You do not have any guarantors at the moment",
+      buttons:[
+        {
+          text:"Ok",
+          role:"cancel",
+          handler: ()=>{
+            console.log("canceled")
+          }
+        }
+      ]
+    })
+
+    alert.present()
+  }
+
+  handleGuaranteeStatement(){
+    this.socketHelper.getGuarantees()
+    let alert = this.alertCtrl.create({
+      title:"GUARANTORS LIST",
+      message:"You do not have any guarantees at the moment",
+      buttons:[
+        {
+          text:"Ok",
+          role:"cancel",
+          handler: ()=>{
+            console.log("canceled")
+          }
+        }
+      ]
+    })
+
+    alert.present()    
+  }
+
+  logOut(){
+    this.navCtrl.setRoot('WelcomePage');
+  }  
  
 }
  

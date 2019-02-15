@@ -27,7 +27,8 @@ export class PersonalAccountPage {
 
   ionViewDidLoad(){
     console.log("personal accs page loaded")
-    this.socketHelper.balanceEnq()
+    // this.socketHelper.balanceEnq()
+    this.socketHelper.balanceEnq(this.navParams.get('data'))
     this.socket.on('balEnqData',(data)=>{
       console.log("balEnqData:",data)
       this.fosaArray = data.data[0]

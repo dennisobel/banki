@@ -25,6 +25,10 @@ export class TransferPage {
     private socket: Socket,
     private storage: Storage) {
   }
+
+  ionViewDidLoad(){
+    this.socketHelper.getMemberAccounts()
+  }
   
   // transform result
   showResult(){

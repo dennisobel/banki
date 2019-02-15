@@ -3,6 +3,7 @@ import { Socket } from 'ng-socket-io';
 import { Storage } from '@ionic/storage';
 import { resolve } from 'dns';
 
+
 @Injectable()
 
 export class SocketProvider {
@@ -56,21 +57,28 @@ export class SocketProvider {
   }
 
   // Enquiries
-  balanceEnq(){
-    this.storage.get('loginData')
-    .then(res=>{
-      let body = {
-        ...res
-      }  
+  balanceEnq(data){
+    // this.storage.get('loginData')
+    // .then(res=>{
+    //   let body = {
+    //     ...res
+    //   }  
 
-      return body
+    //   return body
       
+    // })
+    // .then((res)=>{
+    //   // this.storage.set("login",(res.data))
+    //   this.socket.emit("balanceEnq",res)
+    //   console.log("heree come res of balenq",res)
+    // })
+    /*
+    return new Promise((resolve,reject)=>{
+      resolve(this.socket.emit("balanceEnq",data))
     })
-    .then((res)=>{
-      // this.storage.set("login",(res.data))
-      this.socket.emit("balanceEnq",res)
-      console.log("heree come res of balenq",res)
-    })
+    */
+   this.socket.emit("balanceEnq",data)
+    
     
   }
 
@@ -92,18 +100,14 @@ export class SocketProvider {
   }
   // Apply Loan
   applyMLoan(data){
+    console.log("mloan data: ",data)
     return new Promise((resolve,reject)=>{
       resolve(this.socket.emit('applyMLoan',data))
     })
   }
 
-  applyExpressLoan(data){
-    return new Promise((resolve,reject)=>{
-      resolve(this.socket.emit('applyExpressLoan',data))
-    })
-  }
-
   applyFosaAdvance(data){
+    console.log("fosa data: ",data)
     return new Promise((resolve,reject)=>{
       resolve(this.socket.emit('applyFosaAdvance',data))
     })
@@ -114,14 +118,7 @@ export class SocketProvider {
     return new Promise((resolve,reject)=>{
       resolve(this.socket.emit('payLoan',data))
     })
-  }
-
-  // Guarantees/Guarantors
-  guaranteesGuarantors(){
-    return new Promise((resolve,reject)=>{
-      resolve(this.socket.emit('guaranteesGuarantors'))
-    })
-  }
+  }  
 
   // Funds Transfer
   // Get Account Balances
@@ -167,6 +164,24 @@ export class SocketProvider {
     })
   }
 
+  kopaAirtime(data){
+    console.log("Inside Kopa Airtime")
+    this.storage.get('loginData')
+    .then(res=>{
+      let body = {
+        data,
+        ...res
+      }  
+      console.log(body)
+      return body
+      
+    })
+    .then((res)=>{
+      console.log("airtime loan res:",res)
+      this.socket.emit("kopaAirtime",res)
+    })    
+  }
+
   tokenPurchase(data){
     this.storage.get('loginData')
     .then(res=>{
@@ -190,7 +205,7 @@ export class SocketProvider {
       let body = {
         ...res
       }  
-      console.log(body)
+      console.log("LOGIN DATA IN E-STAT",body)
       return body
       
     })
@@ -198,6 +213,92 @@ export class SocketProvider {
       console.log("e-stat:",res)
       this.socket.emit("estatement",res)
     })    
+  }
+
+// Guarantees/Guarantors
+getGuarantors(){
+  this.storage.get('loginData')
+  .then(res=>{
+    let body = {
+      ...res
+    }  
+    console.log(body)
+    return body
+    
+  })
+  .then((res)=>{
+    console.log("GUARANTORS:",res)
+    this.socket.emit("guarantors",res)
+  })    
+}
+
+getGuarantees(){
+  this.storage.get('loginData')
+  .then(res=>{
+    let body = {
+      ...res
+    }  
+    console.log(body)
+    return body
+    
+  })
+  .then((res)=>{
+    console.log("GUARANTEES:",res)
+    this.socket.emit("guarantees",res)
+  })    
+}  
+
+  loanEligibility(data){
+    // this.storage.get('loginData')
+    // .then(res=>{
+
+    //   console.log(res)
+    //   return res
+      
+    // })
+    // .then((res)=>{
+    //   console.log("loan eligibility:",res)
+    //   this.socket.emit("loanEligibility",res)
+    // })     
+    this.socket.emit("loanEligibility",data)
+  }
+
+
+  loanBalances(data){
+    console.log("navparams data: ", data)
+    // this.storage.get('loginData')
+    // .then(res=>{
+
+    //   console.log(res)
+    //   return res
+      
+    // })
+    // .then((res)=>{
+    //   console.log("loan balances:",res)
+    //   this.socket.emit("loanBalances",res)
+    // })     
+    this.socket.emit("loanBalances",data)
+  }  
+
+  depositFromMpesa(data){
+    console.log("DEPOSIT TO MPESA DATA: ", data)
+    this.socket.emit('depositFromMpesa',data)
+  }
+
+  getMemberAccounts(){
+    this.storage.get('loginData')
+    .then(res=>{
+      let body = {
+        ...res
+      }  
+      console.log(body)
+      return body
+      
+    })
+    .then((res)=>{
+      console.log("MEMBERACCOUNTS:",res)
+      this.socket.emit("memberAccounts",res)
+    })        
   }
  
 

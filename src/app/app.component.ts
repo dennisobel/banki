@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage';
 
 
 
@@ -15,18 +16,22 @@ export class MyApp {
 
   pages: Array<{title: string, component: any,icon:any}>;
   public animateVarible:boolean=false;
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(
+    public platform: Platform, 
+    public statusBar: StatusBar, 
+    public splashScreen: SplashScreen,
+    private storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Summary', component: 'SummaryPage',icon:'banki-summary' },
-      { title: 'Personal Accounts', component: 'PersonalAccountPage',icon:'banki-user' },
-      { title: 'Benficiariers', component: 'BeneficiariesPage',icon:'banki-exchange' },
+      { title: 'Main Menu', component: 'SummaryPage',icon:'banki-summary' },
+      { title: 'Savings and Balances', component: 'PersonalAccountPage',icon:'banki-user' },
+      // { title: 'Benficiariers', component: 'BeneficiariesPage',icon:'banki-exchange' },
       { title: 'Setting', component: 'SettingPage',icon:'banki-setting' },
       { title: 'Profile', component: 'ProfilePage',icon:'banki-user-1' },
       { title: 'Currancy Converter', component: 'CurrencyConvertorPage',icon:'banki-converter' },
-      { title: 'Transfer Payment', component: 'TransferPage',icon:'banki-transfer' },
+      // { title: 'Internal Transfer', component: 'TransferPage',icon:'banki-transfer' },
       { title: 'Find us', component: 'FindUsPage',icon:'banki-location' },
       { title: 'Contact us', component: 'ContactUsPage',icon:'banki-phone' },
 
@@ -44,8 +49,13 @@ export class MyApp {
   }
 
   openPage(page) {
+    let loginData
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page);
+    this.storage.get('loginData').then(data=>{
+      console.log("side menu data:", data)
+      loginData = data
+    })
+    this.nav.setRoot(page,loginData);
   }
 }

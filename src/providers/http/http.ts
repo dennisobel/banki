@@ -108,7 +108,7 @@ export class HttpProvider {
         .map((res)=>res.json())
         .subscribe(res=>{
             console.log("res:",res)
-            this.storage.set('loginData',res)
+            this.storage.set('loginData',data)
             resolve(res)
         })
     // })      
@@ -169,7 +169,7 @@ logout(){
     })
 }    
 
-getuser(){
+getuser(data){
     return new Promise((resolve,reject)=>{
         this.http.get(this.offline.getUserURL)
         .subscribe(res=>{

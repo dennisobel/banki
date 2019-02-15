@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 338:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatementsPageModule", function() { return StatementsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__statements__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__statements__ = __webpack_require__(375);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ StatementsPageModule = __decorate([
 
 /***/ }),
 
-/***/ 363:
+/***/ 375:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -48,7 +48,7 @@ StatementsPageModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_socket_socket__ = __webpack_require__(221);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(113);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(35);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -94,15 +94,51 @@ var StatementsPage = (function () {
         console.log('ionViewDidLoad StatementsPage');
     };
     StatementsPage.prototype.handleEStatement = function () {
-        console.log("handle e-statement");
         this.socketHelper.eStatement();
+    };
+    StatementsPage.prototype.handleGuarantorStatement = function () {
+        this.socketHelper.getGuarantors();
+        var alert = this.alertCtrl.create({
+            title: "GUARANTORS LIST",
+            message: "You do not have any guarantors at the moment",
+            buttons: [
+                {
+                    text: "Ok",
+                    role: "cancel",
+                    handler: function () {
+                        console.log("canceled");
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    StatementsPage.prototype.handleGuaranteeStatement = function () {
+        this.socketHelper.getGuarantees();
+        var alert = this.alertCtrl.create({
+            title: "GUARANTORS LIST",
+            message: "You do not have any guarantees at the moment",
+            buttons: [
+                {
+                    text: "Ok",
+                    role: "cancel",
+                    handler: function () {
+                        console.log("canceled");
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    StatementsPage.prototype.logOut = function () {
+        this.navCtrl.setRoot('WelcomePage');
     };
     return StatementsPage;
 }());
 StatementsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-statements',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Statements</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <button \n    ion-button \n    block \n    color="color2" \n    (click)="handleEStatement()">E-Statement</button> \n\n</ion-content>\n '/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/,
+        selector: 'page-statements',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Statements</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button \n    ion-button \n    block \n    color="color2" \n    (click)="handleEStatement()">E-Statement\n  </button> \n\n  <br>\n\n  <button \n    ion-button \n    block \n    color="color2" \n    (click)="handleGuarantorStatement()">Guarantor Statement\n  </button> \n\n  <br>\n\n  <button\n    ion-button \n    block \n    color="color2" \n    (click)="handleGuaranteeStatement()">Guarantees Statement\n  </button> \n\n</ion-content>\n '/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],

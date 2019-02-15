@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
+import { SocketProvider } from "../../providers/socket/socket";
+import { HttpProvider } from "../../providers/http/http"
 
 
 
@@ -9,20 +11,38 @@ import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angu
   templateUrl: 'deposit.html',
 })
 export class DepositPage { 
-  private amount:any;
-  private accountNumber:any;
+  private amount:number;
+  private accountNumber:number;
 
   constructor(
     private navCtrl: NavController, 
     private navParams: NavParams,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private socketHelper: SocketProvider,
+    private loadingCtrl: LoadingController,
+    private httpHelper: HttpProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DepositPage');
   }
 
+  onSelectSelf(){
+
+  }
+
+  onSelectOther(){
+
+  }
+
   handleContinue(){
+    let loading = this.loadingCtrl.create({
+        content: 'Processing Deposit...',
+        duration: 3000
+    });
+    loading.present();   
+  
+  
     let alert = this.alertCtrl.create({
       title:`Confirm deposit of Ksh ${this.amount} to account ${this.accountNumber}`,
       buttons: [
@@ -37,12 +57,17 @@ export class DepositPage {
           text: 'Ok',
           handler: ()=>{
             // handle deposit
+            this.socketHelper.depositFromMpesa({accountNumber:this.accountNumber,amount:this.amount,paybill:40014})
           }
         }
       ]
     })
 
-    alert.present()
+    alert.present() 
   }
+
+  logOut(){
+    this.navCtrl.setRoot('WelcomePage');
+  }  
 
 }

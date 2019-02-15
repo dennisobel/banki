@@ -38,17 +38,19 @@ $colors: (
   danger:     #f53d3d,
   light:      #fff,
   dark:       #000,
-  color1:     #3d5e8b,
-  color2:     #eb9f0d,
-  color3:     #707070,
-  color4:     #eeeff1,
+  color1:     #031c3f,
+  color2:     #3a5cf1,
+  color3:     #494949,
+  color4:     #fff,
   color5:   #383737,
+  color6:   #eeecec,
   faceColor:  #3a5a98,
   twitterColor:#65a2d9,
   googleColor:#ff5450
 );
 
-
+// color4:     #eeeff1,
+// color2:     #eb9f0d,
 // App  Variables
 $mainFont:1.3rem;
  $appFonts:(h3:$mainFont + .3,h4:$mainFont + .1,h5:$mainFont,p:$mainFont - .1);

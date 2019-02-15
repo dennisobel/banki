@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 208 212" style="enable-background:new 0 0 208 212;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#9BCFE0;}
+	.st1{clip-path:url(#XMLID_19_);fill:#5BBE38;}
+	.st2{opacity:0.85;fill:url(#XMLID_20_);}
+	.st3{fill:#009E99;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:#0D7F74;}
+	.st6{fill:#00726C;}
+	.st7{fill:#FFA64A;}
+	.st8{fill:#EBEBEB;}
+	.st9{opacity:0.28;fill:#FFFFFF;}
+</style>
+<g id="XMLID_276_">
+	<circle id="XMLID_132_" class="st0" cx="104.9" cy="106.9" r="98.1"/>
+	<g id="XMLID_248_">
+		<defs>
+			<rect id="XMLID_249_" x="-39" y="106.8" width="296.5" height="117.9"/>
+		</defs>
+		<clipPath id="XMLID_19_">
+			<use xlink:href="#XMLID_249_"  style="overflow:visible;"/>
+		</clipPath>
+		<circle id="XMLID_250_" class="st1" cx="104.2" cy="106.8" r="98.1"/>
+	</g>
+	<radialGradient id="XMLID_20_" cx="104.6663" cy="106.8557" r="98.1039" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</radialGradient>
+	<circle id="XMLID_271_" class="st2" cx="104.7" cy="106.9" r="98.1"/>
+	<g id="XMLID_123_">
+		<rect id="XMLID_129_" x="39.8" y="124.5" class="st3" width="22" height="43"/>
+		<rect id="XMLID_128_" x="54.5" y="153.1" class="st4" width="3.7" height="3.8"/>
+		<rect id="XMLID_127_" x="54.5" y="160.3" class="st4" width="3.7" height="3.8"/>
+		<rect id="XMLID_126_" x="61.8" y="124.5" class="st5" width="7.2" height="43"/>
+		<path id="XMLID_125_" class="st6" d="M69.1,128h11.1l18,7.4h20.7c0,0,7.5,1.2,3.3,8.9h5l22.9-11c0,0,9.1-0.2,5,8.6L115,167.5
+			c0,0-2.9,1.5-9.3-0.5c-6.3-1.9-31.2-10.2-31.2-10.2h-5.5V128z"/>
+		<path id="XMLID_124_" class="st3" d="M118.6,145.8L97.1,146c0,0-3.9,0.9-4.4,5.3C92.7,151.3,109.6,151.4,118.6,145.8z"/>
+	</g>
+	<g id="XMLID_3_">
+		<path id="XMLID_17_" class="st7" d="M98.6,59.6c0,0-7.5,6.4-14.4,16.6h-5.4c0,0-3.2,0.7-3,3.8c0.1,2.3,1.8,3.3,4.1,3.4
+			c2.3,0.1,12.4,0,12.4,0s3.1,0.7,3.1,4c0,3.3-3.1,3.3-4.5,3.2c-1.4-0.1-47.7,0-47.7,0s-3.8,0.2-3.8,3.9s4.2,3.2,5.3,3.2
+			c1.1,0.1,39.2,0,39.2,0s3.1,0.6,3.1,3.7c0,1.6-1.2,3.4-3.5,3.5c-2.4,0.1-25.9,0-25.9,0s-3.2,0.4-3.2,4.2c0,1.6,1.8,3,3.5,3
+			c1.7,0,18.3,0,18.3,0s6.3,15.3,16.9,16.3c10.4,0,35.4,0,35.4,0s15.4-3.7,17.5-20.5c0.8-11.9-0.1-18.8-6.7-28.4
+			s-16.2-20.2-16.2-20.2s0.2,0.8-2,0.9s-21,0.1-21,0.1S99,60.4,98.6,59.6z"/>
+		<path id="XMLID_5_" class="st7" d="M99.4,55.7l-6.4-10c0,0-0.9-1.2,0.3-1.9c1.2-0.7,1.5-0.4,3.3-1.3c1.2-0.5,2.5-0.1,4,0.4
+			c1.5,0.5,2.7,1.5,4.6,0.4c1.9-1.2,4.9-3.5,4.9-3.5s1-0.9,3.3,1.2c2.3,2.1,3.3,3.4,5.9,2.4s4.2-1.9,6.2-0.8c1.9,1,3.1,1.5,3.1,1.5
+			s0.8,0.6-0.8,2.4s-5.5,9.1-5.5,9.1H99.4z"/>
+		<path id="XMLID_4_" class="st8" d="M99.7,55.3c0,0-1.2,0.1-1.3,1.2s0,2.3,0,2.3s-0.2,1.8,2.1,1.8c2.3,0,20.9-0.1,20.9-0.1
+			s2.1,0,2.1-1.7c0-1.3,0.5-2.7-0.9-3.4L99.7,55.3z"/>
+	</g>
+	<path id="XMLID_270_" class="st9" d="M12.8,72.6c0,0,110.1,51.8,184.5,1.6c0,0-16.3-63.1-92.5-65.5C53.4,7,21.2,47.9,12.8,72.6z"/>
+</g>
+</svg>

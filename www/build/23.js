@@ -1,14 +1,14 @@
 webpackJsonp([23],{
 
-/***/ 320:
+/***/ 326:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddAccountPageModule", function() { return AddAccountPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactUsPageModule", function() { return ContactUsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_account__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_us__ = __webpack_require__(358);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,31 +18,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AddAccountPageModule = (function () {
-    function AddAccountPageModule() {
+var ContactUsPageModule = (function () {
+    function ContactUsPageModule() {
     }
-    return AddAccountPageModule;
+    return ContactUsPageModule;
 }());
-AddAccountPageModule = __decorate([
+ContactUsPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__add_account__["a" /* AddAccountPage */],
+            __WEBPACK_IMPORTED_MODULE_2__contact_us__["a" /* ContactUsPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__add_account__["a" /* AddAccountPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__contact_us__["a" /* ContactUsPage */]),
         ],
     })
-], AddAccountPageModule);
+], ContactUsPageModule);
 
-//# sourceMappingURL=add-account.module.js.map
+//# sourceMappingURL=contact-us.module.js.map
 
 /***/ }),
 
-/***/ 346:
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddAccountPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactUsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -56,36 +56,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AddAccountPage = (function () {
-    function AddAccountPage(navCtrl, navParams) {
+var ContactUsPage = (function () {
+    function ContactUsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.show = false;
     }
-    // go to another page function
-    AddAccountPage.prototype.setRootFun = function (page) {
-        this.navCtrl.setRoot(page);
+    // logOut Function 
+    ContactUsPage.prototype.logOut = function () {
+        this.navCtrl.setRoot('WelcomePage');
     };
-    // appear add Button function
-    AddAccountPage.prototype.apperAddBtn = function () {
-        this.show = true;
-    };
-    // Clear input for add new account
-    AddAccountPage.prototype.newAdd = function () {
-        this.nickName = '';
-        this.accountNumber = '';
-    };
-    return AddAccountPage;
+    return ContactUsPage;
 }());
-AddAccountPage = __decorate([
+ContactUsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-add-account',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/add-account/add-account.html"*/'\n<ion-header>\n\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Add Account</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <ion-list-header>\n          Add Account\n      </ion-list-header>\n\n      <!-- Add new Button -->\n      <button  block ion-item (click)="newAdd()" *ngIf="show == true">\n        <ion-icon item-right name="ios-add"></ion-icon>\n        Add / Pay New\n      </button> \n      \n      <!--  NickName Input -->\n      <ion-item>\n        <ion-label stacked>NickName</ion-label>\n        <ion-input type="text" [(ngModel)]="nickName" placeholder="Nick Name"></ion-input>\n      </ion-item> \n      <!-- Account Number Input -->\n      <ion-item>\n        <ion-label stacked>Account Number</ion-label>\n        <ion-input type="num" [(ngModel)]="accountNumber" placeholder="Beneficiary / Account Number"></ion-input>\n      </ion-item> \n    </ion-list> \n  </div>\n  <button ion-button block color="color2" (click)="apperAddBtn()">Save</button>\n  <button ion-button block color="color1" (click)="setRootFun(\'TransferPage\')">Save & Transfer</button>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/add-account/add-account.html"*/,
+        selector: 'page-contact-us',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/contact-us/contact-us.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Contact Us</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n<div class="appForm">\n  <ion-list>\n    <ion-list-header>\n        Contact Us\n    </ion-list-header>\n      <button  block ion-item>\n        <ion-icon item-left name="ios-call"></ion-icon>\n        <ion-icon item-right name="md-arrow-dropright"></ion-icon>\n          12565156566\n      </button> \n      <button  block ion-item>\n        <ion-icon item-left name="ios-globe-outline"></ion-icon>\n        <ion-icon item-right name="md-arrow-dropright"></ion-icon>\n          Website\n      </button> \n  </ion-list>\n  <ion-list>\n    <ion-list-header>\n        Follow Us\n    </ion-list-header>\n      <ion-item>\n        <button ion-button block color="faceColor" only-icon>\n          <ion-icon name="logo-facebook"></ion-icon>\n        </button>\n      </ion-item>\n      <ion-item>\n        <button ion-button block color="twitterColor" only-icon>\n          <ion-icon name="logo-twitter"></ion-icon>\n        </button>\n      </ion-item>\n      <ion-item>\n        <button ion-button block color="googleColor" only-icon>\n          <ion-icon name="logo-googleplus"></ion-icon>\n        </button>\n      </ion-item>\n    </ion-list> \n    <ion-list>\n      <ion-list-header>\n          Ask Us\n      </ion-list-header>\n        <ion-item>\n          <ion-textarea rows="3" placeholder="Your Question ?"></ion-textarea>\n        </ion-item>\n    </ion-list> \n    <button float-right ion-button color="color2">Send</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/contact-us/contact-us.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
-], AddAccountPage);
+], ContactUsPage);
 
-//# sourceMappingURL=add-account.js.map
+//# sourceMappingURL=contact-us.js.map
 
 /***/ })
 

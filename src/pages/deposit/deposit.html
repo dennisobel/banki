@@ -15,6 +15,19 @@
 </ion-header>
 
 <ion-content padding>
+
+    <ion-list>
+      <ion-list-header>Send To Self Or Other</ion-list-header>
+
+      <ion-item>
+        <ion-label>Self/Other</ion-label>
+        <ion-select [(ngModel)]="loanType" placeholder="Select One">
+          <ion-option (ionSelect)="onSelectSelf()"  value="s" >SELF</ion-option>
+          <ion-option (ionSelect)="onSelectOther()"  value="o" >OTHER</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  <!--
   <ion-list class="list" radio-group [(ngModel)]="sendTo">
     <ion-row>
       <ion-col col-6>
@@ -31,6 +44,7 @@
       </ion-col>
     </ion-row>   
   </ion-list>
+  -->
 
   <ion-item>
     <ion-label floating>Account Number</ion-label>
@@ -44,7 +58,7 @@
 
   <hr/>
 
-  <button color="color2" ion-button round (click)="handleContinue()">CONTINUE</button>
+  <button color="color2" ion-button block (click)="handleContinue()">CONTINUE</button>
 </ion-content>
 
 

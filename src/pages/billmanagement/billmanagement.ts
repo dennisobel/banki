@@ -121,7 +121,7 @@ export class BillmanagementPage {
           text:'Kopa',
           handler:data => {
             if(item === 'Airtime'){
-              console.log("kopa credo coming soon")
+              this.socketHelper.kopaAirtime(data.amount)
             }else if(item === 'Electricity'){
               console.log("kopa token coming soon")
             }            
@@ -132,6 +132,10 @@ export class BillmanagementPage {
 
     alert.present()
   }
+
+  logOut(){
+    this.navCtrl.setRoot('WelcomePage');
+  }  
 
 }
 

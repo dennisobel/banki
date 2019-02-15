@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 208 212" style="enable-background:new 0 0 208 212;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#9BCFE0;}
+	.st1{clip-path:url(#XMLID_4_);fill:#0D699A;}
+	.st2{opacity:0.76;fill:url(#XMLID_5_);}
+	.st3{fill:#B70606;}
+	.st4{fill:#3EA34E;}
+	.st5{fill:#2EB801;}
+	.st6{fill:#00726C;}
+	.st7{font-family:'Calibri-Bold';}
+	.st8{font-size:35.2534px;}
+	.st9{opacity:0.28;fill:#FFFFFF;}
+</style>
+<g id="XMLID_277_">
+	<circle id="XMLID_184_" class="st0" cx="104.3" cy="104.4" r="98.1"/>
+	<g id="XMLID_260_">
+		<defs>
+			<rect id="XMLID_261_" x="-38.6" y="104" width="296.5" height="117.9"/>
+		</defs>
+		<clipPath id="XMLID_4_">
+			<use xlink:href="#XMLID_261_"  style="overflow:visible;"/>
+		</clipPath>
+		<circle id="XMLID_262_" class="st1" cx="104.5" cy="104" r="98.1"/>
+	</g>
+	<radialGradient id="XMLID_5_" cx="104.311" cy="104.4645" r="98.1039" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#FFFFFF"/>
+		<stop  offset="1" style="stop-color:#000000"/>
+	</radialGradient>
+	<circle id="XMLID_256_" class="st2" cx="104.3" cy="104.5" r="98.1"/>
+	<g id="XMLID_171_">
+		<path id="XMLID_177_" class="st3" d="M122.2,85c0,0-26.1,0-33.6,0s-8.5,8.5-8.5,8.5v74.1c2.6,8.4,8.1,7.6,8.1,7.6s29,0,34.5,0
+			c5.5,0,7.6-7.6,7.6-7.6s0-67.9,0-74.5S122.2,85,122.2,85z M96.4,164.4c0,0.3-0.3,0.6-0.6,0.6h-2.6c-0.3,0-0.6-0.3-0.6-0.6v-2.8
+			c0-0.3,0.3-0.6,0.6-0.6h2.6c0.3,0,0.6,0.3,0.6,0.6V164.4z M109.7,166.5c0,0.3-0.3,0.6-0.6,0.6h-6.5c-0.3,0-0.6-0.3-0.6-0.6v-6.9
+			c0-0.3,0.3-0.6,0.6-0.6h6.5c0.3,0,0.6,0.3,0.6,0.6V166.5z M118.7,164.4c0,0.3-0.3,0.6-0.6,0.6h-2.6c-0.3,0-0.6-0.3-0.6-0.6v-2.8
+			c0-0.3,0.3-0.6,0.6-0.6h2.6c0.3,0,0.6,0.3,0.6,0.6V164.4z M123.9,154H86.7V93.5h37.2V154z"/>
+		<path id="XMLID_176_" class="st4" d="M100.3,130.1c0,0-6.6-2.3-10.8-12.2c0,0-1.1,2.2-2.8,4.5v15.2
+			C86.7,137.6,97.1,132.8,100.3,130.1z"/>
+		<path id="XMLID_175_" class="st4" d="M80.1,130.2c0,0-4.9,6.7-18.4,8.2c0,0,6.7,3.1,18.4,0.7V130.2z"/>
+		<path id="XMLID_174_" class="st5" d="M80.1,143.7c0,0-11.6-2.8-15.9-4.5c0,0,6.3,1.8,15.9-0.1V143.7z"/>
+		<path id="XMLID_173_" class="st5" d="M86.7,137.6c0,0,12.9-5.1,19.6-13.5c6.7-8.4,12.5-18.1,14.9-26.5l2.7,2v43.4
+			c0,0-17.4,5.6-37.2,1.9V137.6z"/>
+		<path id="XMLID_172_" class="st5" d="M130.4,103.7l23.3,15.2c0,0-6.6,15.6-23.3,21.8V103.7z"/>
+	</g>
+	<text id="XMLID_165_" transform="matrix(1 0 0 1 42.2593 65.4781)" class="st6 st7 st8">LIPA NA</text>
+	<path id="XMLID_208_" class="st9" d="M11.4,70.2c0,0,110.1,51.8,184.5,1.6c0,0-16.3-63.1-92.5-65.5C52,4.6,19.7,45.5,11.4,70.2z"/>
+</g>
+</svg>

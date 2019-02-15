@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 337:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpPageModule", function() { return SignUpPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up__ = __webpack_require__(374);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ SignUpPageModule = __decorate([
 
 /***/ }),
 
-/***/ 362:
+/***/ 374:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -186,7 +186,7 @@ var SignUpPage = (function () {
 SignUpPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-sign-up',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>SIGN ME UP</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <!-- Member No input -->\n      <ion-item>\n        <ion-label floating>\n          Member Number\n        </ion-label>\n        <ion-icon name="person"></ion-icon>\n        <ion-input style="font-size: 1.3rem;" [(ngModel)]="member_number" type="number"></ion-input>\n      </ion-item>\n      <!-- ID input -->\n      <ion-item>\n        <ion-label floating>\n          ID Number\n        </ion-label>\n        <ion-icon name="person"></ion-icon>\n        <ion-input style="font-size: 1.3rem;" [(ngModel)]="id_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- Phone Number input -->\n      <ion-item>\n				<ion-label floating>Phone Number</ion-label>\n        <ion-icon name="call"></ion-icon>\n				<ion-input style="font-size: 1.3rem;" [(ngModel)]="phone_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- password input -->\n      <!--\n      <ion-item>\n        <ion-label floating>Set P.I.N</ion-label>\n        <ion-icon name="ios-lock-outline" item-left></ion-icon>\n        <ion-input type="password"></ion-input>\n      </ion-item>  -->    \n    </ion-list>\n  </div>\n  <br/>\n  <div>\n  <br/>\n    <ion-item>\n      <ion-label \n      color="primarytext" \n      style="font-size: 1.2rem;"><strong>Agree to our <a href><u>Terms</u></a> & <a href><u>Conditions</u></a></strong></ion-label>\n\n      <ion-checkbox color="primarytext" [(ngModel)]="terms" (ionChange)="updateTerms()"></ion-checkbox>\n    </ion-item>	    \n  </div>\n\n  <div>\n  <br/>\n    <!--<button ion-button block color="color2" (click)="doCancel()">Sign in</button>-->\n    <button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign Up</button>\n  </div>  \n  <!--<button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign up</button>-->\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/,
+        selector: 'page-sign-up',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>SIGN ME UP</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <!-- Member No input -->\n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="Member Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="member_number" type="number"></ion-input>\n      </ion-item>\n      <!-- ID input -->\n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="ID Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="id_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- Phone Number input -->\n      <ion-item>\n        <ion-icon name="call"></ion-icon>\n				<ion-input placeholder="Phone Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="phone_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- password input -->\n      <!--\n      <ion-item>\n        <ion-label floating>Set P.I.N</ion-label>\n        <ion-icon name="ios-lock-outline" item-left></ion-icon>\n        <ion-input type="password"></ion-input>\n      </ion-item>  -->    \n    </ion-list>\n  </div>\n  <br/>\n  <div>\n  <br/>\n    <ion-item>\n      <ion-label \n      color="primarytext" \n      style="font-size: 1.2rem;"><strong>Agree to our <a href><u>Terms</u></a> & <a href><u>Conditions</u></a></strong></ion-label>\n\n      <ion-checkbox color="primarytext" [(ngModel)]="terms" (ionChange)="updateTerms()"></ion-checkbox>\n    </ion-item>	    \n  </div>\n\n  <div>\n  <br/>\n    <!--<button ion-button block color="color2" (click)="doCancel()">Sign in</button>-->\n    <button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign Up</button>\n  </div>  \n  <!--<button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign up</button>-->\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],

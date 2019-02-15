@@ -114,6 +114,9 @@ page-summary {
         }
     }
     .mostUse{
+        .image{
+            background-size: 200px 30px;
+        }        
         $mostUseHeight:70px;
         padding:$mainMarg 0px;
         .button-ios{
