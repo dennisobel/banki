@@ -3,7 +3,6 @@ import { Socket } from 'ng-socket-io';
 import { Storage } from '@ionic/storage';
 import { resolve } from 'dns';
 
-
 @Injectable()
 
 export class SocketProvider {
@@ -77,9 +76,17 @@ export class SocketProvider {
       resolve(this.socket.emit("balanceEnq",data))
     })
     */
-   this.socket.emit("balanceEnq",data)
+   
+  //  this.socket.emit("balanceEnq",data)
+    return new Promise((resolve,reject)=>{
+      resolve(this.socket.emit("balanceEnq",data))
+    })
     
     
+  }
+
+  getAccounts(data) {
+    this.socket.emit('memberAccounts',data)
   }
 
   miniStatEnq(data){
@@ -199,7 +206,8 @@ export class SocketProvider {
     })
   }
 
-  eStatement(){
+  eStatement(data){
+    /*
     this.storage.get('loginData')
     .then(res=>{
       let body = {
@@ -212,11 +220,16 @@ export class SocketProvider {
     .then((res)=>{
       console.log("e-stat:",res)
       this.socket.emit("estatement",res)
-    })    
+    })  
+    */
+   return new Promise((resolve,reject) => {
+     resolve(this.socket.emit('estatement',data))
+   })  
   }
 
 // Guarantees/Guarantors
-getGuarantors(){
+getGuarantors(data){
+  /*
   this.storage.get('loginData')
   .then(res=>{
     let body = {
@@ -229,10 +242,15 @@ getGuarantors(){
   .then((res)=>{
     console.log("GUARANTORS:",res)
     this.socket.emit("guarantors",res)
-  })    
+  }) 
+  */
+ return new Promise((resolve,reject) => {
+   resolve(this.socket.emit('guarantors',data))
+ })   
 }
 
-getGuarantees(){
+getGuarantees(data){
+  /*
   this.storage.get('loginData')
   .then(res=>{
     let body = {
@@ -245,7 +263,12 @@ getGuarantees(){
   .then((res)=>{
     console.log("GUARANTEES:",res)
     this.socket.emit("guarantees",res)
-  })    
+  }) 
+  */
+ 
+  return new Promise((resolve,reject) => {
+    resolve(this.socket.emit('guarantees',data))
+  })
 }  
 
   loanEligibility(data){
@@ -259,8 +282,11 @@ getGuarantees(){
     // .then((res)=>{
     //   console.log("loan eligibility:",res)
     //   this.socket.emit("loanEligibility",res)
-    // })     
-    this.socket.emit("loanEligibility",data)
+    // }) 
+    return new Promise((resolve,reject) => {
+      resolve(this.socket.emit("loanEligibility",data))
+    })    
+    
   }
 
 
@@ -277,12 +303,17 @@ getGuarantees(){
     //   console.log("loan balances:",res)
     //   this.socket.emit("loanBalances",res)
     // })     
-    this.socket.emit("loanBalances",data)
+    
+    return new Promise((resolve,reject)=>{
+      resolve(this.socket.emit("loanBalances",data))
+    })
   }  
 
   depositFromMpesa(data){
     console.log("DEPOSIT TO MPESA DATA: ", data)
-    this.socket.emit('depositFromMpesa',data)
+    return new Promise((resolve,reject) => {
+      resolve(this.socket.emit('depositFromMpesa',data))
+    })
   }
 
   getMemberAccounts(){
@@ -299,6 +330,20 @@ getGuarantees(){
       console.log("MEMBERACCOUNTS:",res)
       this.socket.emit("memberAccounts",res)
     })        
+  }
+
+  getTransactionDetails(data) {
+    console.log("TRANSACTION DATA:",data)
+    return new Promise((resolve,reject) => {
+      resolve(this.socket.emit('transaction',data))
+    })    
+  }
+
+  postNonMember(data) {
+    return new Promise((resolve,reject) => {
+      // work on ofs
+      resolve(this.socket.emit('nonmemberreg',data))
+    })
   }
  
 

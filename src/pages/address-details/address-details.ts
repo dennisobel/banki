@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,ViewController} from 'ionic-angular';
+import { 
+  IonicPage, 
+  NavController, 
+  NavParams, 
+  ViewController} from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,7 +13,14 @@ import { IonicPage, NavController, NavParams ,ViewController} from 'ionic-angula
 })
 export class AddressDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public viewCtrl: ViewController) {
+  }
+
+  ionViewDidLoad() {
+    // Load Account Details
   }
 
 dismiss() {

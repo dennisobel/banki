@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, ViewController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the RepayLoansPage page.
@@ -15,7 +15,7 @@ import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angu
 })
 export class RepayLoansPage {
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
+  constructor(private viewCtrl: ViewController, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -38,6 +38,10 @@ export class RepayLoansPage {
 
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
-  }  
+  } 
+  
+  onClose() {
+    this.viewCtrl.dismiss();
+  }
 
 }

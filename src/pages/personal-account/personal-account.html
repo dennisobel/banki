@@ -1,36 +1,70 @@
 
 <ion-header>
-  <ion-navbar>
+  <!--
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/header.jpg"/>     
+  </ion-navbar>
+  -->
+  <ion-navbar hideBackButton>
+    <!--
     <ion-buttons start >
       <button ion-button icon-only menuToggle>
         <ion-icon name="ios-menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Savings Balances</ion-title>
     <ion-buttons end >
       <button ion-button icon-only (click)="logOut()">
         <ion-icon name="ios-log-out"></ion-icon>
       </button>
     </ion-buttons>
+    -->
+    <img height="150px" width="470px" src="assets/images/savingsandbalancesheader.jpg"/>
   </ion-navbar>
-</ion-header>
-<ion-content >
-  <p class="myTitle">Accounts</p>
-  <!-- account Name,account Number and currency -->
-  <ion-grid>
+
+  <!--
+  <ion-navbar>
+    <ion-grid class="blanceGrid">
     <ion-row>
-      <ion-col col-6 col-md-4 col-lg-3 *ngFor="let item of accounts">
-        <div class="account" (click)="goTo('AccountDetailsPage')">
-          <p>{{item.name}}</p>
+      <ion-col col-auto>
+        <div class="avatarContent">
+          <img src="assets/img/obel.CR2"/>
 
-          <p class="countNum">
-            Acc Num:{{item.accNumber}}
-          </p>
-
-          <p>Ksh {{item.currency}}</p>
+        </div>
+      </ion-col>
+      <ion-col col>
+        <div class="loginInfo">
+          <P><strong>{{name}}</strong></P>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+  </ion-navbar>  
+  -->
+  
+</ion-header>
+
+<ion-content >
+  <p class="myTitle">Accounts</p>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-4 col-lg-3 *ngFor="let item of filtered">
+        <div class="account" (click)="goTo(item)">
+          <p style="color: #65a2d9">{{item[0]}}</p>
+          <!--
+          <p class="countNum">
+            Acc Num:{{item[2]}}
+          </p>
+          -->
+
+          <p>Ksh {{item[3]}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-fab left bottom>
+    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>
+  </ion-fab>    
 
 </ion-content>

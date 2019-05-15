@@ -1,3 +1,6 @@
+// @import "../pages/welcome/welcome";
+// @mixin 
+
 // mixin in all App
 @mixin placeholder {
     ::-webkit-input-placeholder {@content}
@@ -50,9 +53,15 @@
 }
 //Style of img Background
 .imgBg{
+    // background-image: url('../assets/images/newmoney.jpg');
     background-size:100% 100%;
     background-repeat:no-repeat;
     background-position:center center;  
+}
+
+.imagestyle{
+    height:70px;
+    width:470px;
 }
 
 // box shadow
@@ -121,7 +130,8 @@
 }
 
 .content-ios{
-    background-color:color($colors,color6);
+    background-color:color($colors,color4);
+    // background-image: url('../assets/images/newmoney.jpg');
 }
 .icon{
     &.icon-ios{
@@ -399,7 +409,9 @@
     text-decoration:underline;
 }
 
-
+ion-content{
+    // background-image: url('../assets/images/newmoney.jpg');
+}
 // Menu Style
 
 ion-menu{
@@ -413,7 +425,8 @@ ion-menu{
         .menu-inner{
             max-width:85%;
             .content-ios{
-                background-color:transparent;     
+                // background-color:transparent;     
+                background-color:black;   
                 box-shadow: inset 0px -300px 300px -123px rgba(0,0,0,0.6);
                 .list-ios{
                     padding:$mainMarg*2 0px;
@@ -554,4 +567,38 @@ ion-menu{
             top:$toolbar-ios-height + $mainMarg/2 + 20px;
         }
     }
+}
+
+ion-header ion-icon.back-button-icon.icon {
+    color: map-get($colors, gold);
+}    
+
+.alertCustomCss{
+    $popover-ios-width: 400px;
+    // text color for basic alerts
+    color: #7B1FA2;
+    // background-color: rgba(165, 219, 37, 0.712);
+    background-color: rgba(26, 119, 226, 0.438);
+    overflow: hidden;
+
+
+    button{
+      color: rgb(255, 255, 255) !important;
+    //   background-color: color($colors, gold, base) !important;
+    }
+
+    .alert-message { 
+        color: rgb(255, 51, 0); // text color for confirm alerts
+    }  
+
+    .alert-input{
+        color: rgb(255, 60, 0);
+    }
+
+    .alert-wrapper {
+        overflow: hidden;
+        border-radius: 7.5px;
+        border: 1px solid #7B1FA2;
+        background-color: color($colors, iconsandtext, base); // bg color of alert content
+    }      
 }

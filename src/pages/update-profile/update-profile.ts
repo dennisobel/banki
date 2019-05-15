@@ -19,5 +19,9 @@ export class UpdateProfilePage {
     this.viewCtrl.dismiss();
   }
 
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
+
 
 }

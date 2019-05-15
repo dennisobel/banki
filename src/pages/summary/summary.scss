@@ -1,4 +1,38 @@
 page-summary {
+    .btn{
+        background-color: #ff812c; /* Green */
+        border: none;
+        color: white;
+        padding: 25px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px; 
+    }
+
+    ion-toolbar {
+        --background: transparent;
+        --ion-color-base: transparent !important;
+    }
+
+    ion-navbar {
+        height: 120px;
+    }
+
+    ion-header ion-icon.back-button-icon.icon {
+        color: map-get($colors, dark);
+    }
+
+    ion-header ion-icon.menu.icon {
+        color: map-get($colors, dark);
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
     .grid{
         padding:0px;
         .col{
@@ -9,8 +43,8 @@ page-summary {
                 padding:$mainMarg;
             }   
             .avatarContent{
-                width: 120px;
-                height:120px;
+                width: 100px;
+                height:110px;
                 padding:42px 20px 10px;
                 border-radius:50%;
                 border:1px solid color($colors,color1);
@@ -28,9 +62,44 @@ page-summary {
 
                 }
                 img{
-                    @include borderRadius(50px);
+                    @include borderRadius(75px);
                     @include position(-6px,-6px,auto,auto);
+                    // opacity: 0.5;
+                    z-index: -1;
+
                 }
+                div.polaroid {
+                    width: 250px;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                    text-align: center;
+                }
+                  
+                div.container {
+                    padding: 10px;
+                }
+
+                .img{
+                    height:80px;
+                    opacity: 0.2;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    position: absolute;
+                    z-index: -1; 
+                }
+
+                img.box-shadow {
+                    box-shadow: 0px 9px 250px -15px #000
+                }
+
+                .ion-md-time{
+                    color: red !important;
+                }
+                .ion-ios-time{
+                    color: red !important;
+                }
+
                 .item-range{
                     .range-ios{
                          .range-bar{
@@ -118,7 +187,7 @@ page-summary {
             background-size: 200px 30px;
         }        
         $mostUseHeight:70px;
-        padding:$mainMarg 0px;
+        // padding:$mainMarg 0px;
         .button-ios{
             background:none;
             contain: content;
@@ -126,14 +195,14 @@ page-summary {
             .button-inner{
                 display:block;
                 ion-icon{
-                    height:$mostUseHeight/2;
+                    // height:$mostUseHeight/2;
                     color: color($colors,color3);
                     font-weight:bolder;
                     font-size:2.2rem;
                 }
                 p{
                     white-space:normal;
-                    line-height: $mostUseHeight/4;
+                    // line-height: $mostUseHeight/8;
                     color: color($colors,color3);
                     margin:0px;
                     font-weight:400;
@@ -142,4 +211,40 @@ page-summary {
             }            
         }
     }
+
+
+
+    .profile-image-wrapper {
+        text-align: center;
+        margin: 20px 0;
+    
+        .profile-image {
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+    
+          display: inline-block;
+    
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+        }
+    
+        .profile-image-placeholder {
+          display: inline-block;
+    
+          background-color: #eee;
+          width: 96px;
+          height: 96px;
+          border-radius: 50%;
+    
+          font-size: 12px;
+    
+          ion-icon {
+            font-size: 44px;
+            margin-bottom: -10px;
+            margin-top: 10px;
+          }
+        }
+      }    
 }

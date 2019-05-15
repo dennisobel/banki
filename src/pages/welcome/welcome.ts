@@ -14,6 +14,7 @@ export class WelcomePage {
 
   // goTo Function 
   goTo(page){
+    console.log(page)
     this.navCtrl.push(page);
   }
 

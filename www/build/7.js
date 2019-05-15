@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 344:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatementsPageModule", function() { return StatementsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpPageModule", function() { return SignUpPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__statements__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up__ = __webpack_require__(378);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +18,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var StatementsPageModule = (function () {
-    function StatementsPageModule() {
+var SignUpPageModule = (function () {
+    function SignUpPageModule() {
     }
-    return StatementsPageModule;
+    return SignUpPageModule;
 }());
-StatementsPageModule = __decorate([
+SignUpPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__statements__["a" /* StatementsPage */],
+            __WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__statements__["a" /* StatementsPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */]),
         ],
     })
-], StatementsPageModule);
+], SignUpPageModule);
 
-//# sourceMappingURL=statements.module.js.map
+//# sourceMappingURL=sign-up.module.js.map
 
 /***/ }),
 
-/***/ 375:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StatementsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignUpPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_socket_socket__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(35);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__phonepopup_phonepopup__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,94 +60,344 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+// Providers
 
+// Page
 
-var StatementsPage = (function () {
-    function StatementsPage(navCtrl, alertCtrl, navParams, socketHelper, socket, storage) {
-        var _this = this;
+var SignUpPage = (function () {
+    function SignUpPage(popoverCtrl, navCtrl, toastCtrl, alertCtrl, loadingCtrl, navParams, http, storage) {
+        this.popoverCtrl = popoverCtrl;
         this.navCtrl = navCtrl;
+        this.toastCtrl = toastCtrl;
         this.alertCtrl = alertCtrl;
+        this.loadingCtrl = loadingCtrl;
         this.navParams = navParams;
-        this.socketHelper = socketHelper;
-        this.socket = socket;
+        this.http = http;
         this.storage = storage;
-        this.socket.on('eStatementData', function (data) {
-            console.log(data);
-            var alert = _this.alertCtrl.create({
-                title: "E-STATEMENT REQUEST",
-                message: "" + data.data,
+        this.terms = false;
+    }
+    SignUpPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.presentPopover(__WEBPACK_IMPORTED_MODULE_4__phonepopup_phonepopup__["a" /* PhonepopupPage */]);
+        var phoneNoAlert = this.alertCtrl.create({
+            title: 'GET STARTED',
+            subTitle: 'Enter Your Phone Number',
+            inputs: [
+                {
+                    name: 'phoneNumber',
+                    type: 'text',
+                    placeholder: '254712345678'
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Next',
+                    handler: function (phoneNumber) {
+                        var phone_number = phoneNumber;
+                        console.log(phoneNumber);
+                        _this.http.submitPhoneNumber(phoneNumber).then(function (data) {
+                            // store locally
+                            _this.storage.set('memberData', data.memberData[0]);
+                            if (data.memberExist == false) {
+                                var memberName_1 = data.memberData[0]['MB.CUST.NAME..................'];
+                                var OTPAlert = _this.alertCtrl.create({
+                                    title: "Welcome " + memberName_1,
+                                    subTitle: 'We have sent you a One Time Password. Please enter it below.',
+                                    inputs: [
+                                        {
+                                            name: 'otp',
+                                            type: 'text',
+                                            placeholder: 'One Time Password'
+                                        }
+                                    ],
+                                    buttons: [
+                                        {
+                                            text: 'Next',
+                                            handler: function (otpData) {
+                                                _this.http.submitOTP(otpData)
+                                                    .then(function (data) {
+                                                    if (data.verified == true) {
+                                                        var mnoAlert = _this.alertCtrl.create({
+                                                            title: 'Enter Your SACCO Member Number',
+                                                            inputs: [
+                                                                {
+                                                                    name: 'mno',
+                                                                    type: 'text',
+                                                                    placeholder: 'Member Number',
+                                                                }
+                                                            ],
+                                                            buttons: [
+                                                                {
+                                                                    text: 'Next',
+                                                                    handler: function (mno) {
+                                                                        // compare mno to existing one.
+                                                                        _this.http.submitMNO(mno)
+                                                                            .then(function (data) {
+                                                                            if (data.verified === true) {
+                                                                                // proceed to pin
+                                                                                var pinAlert = _this.alertCtrl.create({
+                                                                                    title: 'Enter a memorable password',
+                                                                                    inputs: [
+                                                                                        {
+                                                                                            name: 'password',
+                                                                                            type: 'password',
+                                                                                            placeholder: 'password'
+                                                                                        }
+                                                                                    ],
+                                                                                    buttons: [
+                                                                                        {
+                                                                                            text: 'Next',
+                                                                                            handler: function (password) {
+                                                                                                _this.http.submitPassword({ password: password, mno: mno })
+                                                                                                    .then(function (data) {
+                                                                                                    console.log('PASSWORD FEEDBACK: ', data);
+                                                                                                    if (data.success === true) {
+                                                                                                        // proceed
+                                                                                                        var welcomeAlert = _this.alertCtrl.create({
+                                                                                                            title: "Welcome " + memberName_1,
+                                                                                                            buttons: [
+                                                                                                                {
+                                                                                                                    text: 'Proceed',
+                                                                                                                    handler: function () {
+                                                                                                                        // navigate to home
+                                                                                                                        _this.navCtrl.push('SummaryPage');
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        });
+                                                                                                        welcomeAlert.present();
+                                                                                                    }
+                                                                                                });
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                });
+                                                                                pinAlert.present();
+                                                                            }
+                                                                            else if (data.verified === null || data.verified === false) {
+                                                                                // mno dont exist logic
+                                                                                var mnoErrorAlert = _this.alertCtrl.create({
+                                                                                    title: 'This member number does not exist.',
+                                                                                    buttons: [
+                                                                                        {
+                                                                                            text: 'Retry',
+                                                                                            handler: function () {
+                                                                                                _this.ionViewDidLoad();
+                                                                                            }
+                                                                                        }
+                                                                                    ]
+                                                                                });
+                                                                                mnoErrorAlert.present();
+                                                                            }
+                                                                        });
+                                                                    }
+                                                                }
+                                                            ]
+                                                        });
+                                                        mnoAlert.present();
+                                                    }
+                                                    else if (data.verified == false) {
+                                                        console.log('resend otp');
+                                                        // Resend OTP Logic
+                                                    }
+                                                });
+                                            }
+                                        }
+                                    ]
+                                });
+                                OTPAlert.present();
+                            }
+                            else if (data.memberExist == true) {
+                                var memberNumber = data.memberData[0]['MB.CUST.NAME..................'];
+                                var userExistAlert = _this.alertCtrl.create({
+                                    title: "Welcome " + memberNumber + ". Please enter your member number and password to proceed",
+                                    inputs: [
+                                        {
+                                            name: 'mno',
+                                            type: 'text',
+                                            placeholder: 'Member Number'
+                                        },
+                                        {
+                                            name: 'password',
+                                            type: 'password',
+                                            placeholder: 'Password'
+                                        }
+                                    ],
+                                    buttons: [
+                                        {
+                                            text: 'Login',
+                                            handler: function (_a) {
+                                                var password = _a.password, mno = _a.mno, phoneNumber = _a.phoneNumber;
+                                                _this.http.submitLogin({ password: password, mno: mno, phoneNumber: phone_number.phoneNumber })
+                                                    .then(function (data) {
+                                                    console.log('SUBMIT LOGIN RES: ', data);
+                                                    if (data.success === true) {
+                                                        _this.navCtrl.push('SummaryPage');
+                                                    }
+                                                });
+                                            }
+                                        },
+                                        {
+                                            text: 'Cancel',
+                                            role: 'cancel',
+                                            handler: function () {
+                                                console.log("On Cancel Join Sacco");
+                                            }
+                                        }
+                                    ]
+                                });
+                                userExistAlert.present();
+                            }
+                        });
+                    }
+                }
+            ]
+        });
+        // phoneNoAlert.present();
+    };
+    // set root page 
+    SignUpPage.prototype.doLogin = function (page) {
+        var _this = this;
+        var signUpData = {
+            idnumber: this.id_number,
+            membernumber: this.member_number,
+            phonenumber: this.phone_number
+        };
+        if (this.terms == false) {
+            var termsCondAlert = this.alertCtrl.create({
+                title: "Please agree to the terms and conditions",
                 buttons: [
                     {
-                        text: 'Ok',
-                        role: 'cancel',
-                        handler: function () {
-                            console.log('Cancel clicked');
-                        }
+                        text: "OK",
                     }
                 ]
             });
-            alert.present();
-        });
-    }
-    StatementsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad StatementsPage');
-    };
-    StatementsPage.prototype.handleEStatement = function () {
-        this.socketHelper.eStatement();
-    };
-    StatementsPage.prototype.handleGuarantorStatement = function () {
-        this.socketHelper.getGuarantors();
-        var alert = this.alertCtrl.create({
-            title: "GUARANTORS LIST",
-            message: "You do not have any guarantors at the moment",
-            buttons: [
-                {
-                    text: "Ok",
-                    role: "cancel",
-                    handler: function () {
-                        console.log("canceled");
+            termsCondAlert.present();
+        }
+        else {
+            this.http.joinSacco(signUpData)
+                .then(function (result) {
+                _this.navCtrl.setRoot(page);
+            }, function (err) {
+            });
+            var accountcreatedalert = this.alertCtrl.create({
+                title: "ALMOST DONE",
+                message: "You will receive a verification code shortly. Enter it here.",
+                inputs: [
+                    {
+                        name: "otp",
+                        placeholder: "Enter Verification Code Here"
                     }
-                }
-            ]
-        });
-        alert.present();
-    };
-    StatementsPage.prototype.handleGuaranteeStatement = function () {
-        this.socketHelper.getGuarantees();
-        var alert = this.alertCtrl.create({
-            title: "GUARANTORS LIST",
-            message: "You do not have any guarantees at the moment",
-            buttons: [
-                {
-                    text: "Ok",
-                    role: "cancel",
-                    handler: function () {
-                        console.log("canceled");
+                ],
+                buttons: [
+                    {
+                        text: "Submit",
+                        handler: function (data) {
+                            _this.http.verifyUser(data);
+                            // .subscribe(res => console.log(res))
+                            // this.navCtrl.push(SigninPage)
+                            var passAlert = _this.alertCtrl.create({
+                                title: "PASSCODE",
+                                message: "Account has been verified. Now enter a memorable 4-digit passcode.",
+                                inputs: [
+                                    {
+                                        name: "passcode",
+                                        placeholder: "Passcode"
+                                    }
+                                ],
+                                buttons: [
+                                    {
+                                        text: "Submit",
+                                        handler: function (data) {
+                                            _this.http.passCode(data);
+                                            console.log(data);
+                                            _this.navCtrl.push(page);
+                                        }
+                                    }
+                                ],
+                                cssClass: 'alertCustomCss'
+                            });
+                            passAlert.present();
+                        }
                     }
-                }
-            ]
+                ],
+                cssClass: 'alertCustomCss'
+            });
+            accountcreatedalert.present();
+        }
+    };
+    SignUpPage.prototype.onVerification = function () {
+        var message = "Verification code will be sent to you via SMS";
+        var duration = 3000;
+        var position = 'top';
+        this.presentToast(message, duration, position);
+    };
+    //toast
+    SignUpPage.prototype.presentToast = function (message, duration, position) {
+        var toast = this.toastCtrl.create({
+            message: message,
+            duration: duration,
+            position: position
         });
-        alert.present();
+        toast.onDidDismiss(function () {
+            console.log('Dismissed toast');
+        });
+        toast.present();
     };
-    StatementsPage.prototype.logOut = function () {
-        this.navCtrl.setRoot('WelcomePage');
+    SignUpPage.prototype.presentPopover = function (page) {
+        var ev = {
+            target: {
+                getBoundingClientRect: function () {
+                    return {
+                        top: '100', left: '100'
+                    };
+                }
+            }
+        };
+        var popover = this.popoverCtrl.create(page, { ev: ev }, { cssClass: 'alertCustomCss', showBackdrop: true });
+        popover.present({});
     };
-    return StatementsPage;
+    SignUpPage.prototype.updateTerms = function () {
+        if (this.id_number === '' || this.phone_number === '') {
+            var validationAlert = this.alertCtrl.create({
+                title: "Please check form for empty fields",
+                buttons: [
+                    {
+                        text: "OK"
+                    }
+                ],
+                cssClass: 'alertCustomCss'
+            });
+            validationAlert.present();
+        }
+        else {
+            console.log("Terms new state:" + this.terms);
+        }
+    };
+    SignUpPage.prototype.showLoader = function () {
+        this.loading = this.loadingCtrl.create({
+            content: 'Authenticating...'
+        });
+        this.loading.present();
+    };
+    return SignUpPage;
 }());
-StatementsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+SignUpPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-statements',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Statements</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button \n    ion-button \n    block \n    color="color2" \n    (click)="handleEStatement()">E-Statement\n  </button> \n\n  <br>\n\n  <button \n    ion-button \n    block \n    color="color2" \n    (click)="handleGuarantorStatement()">Guarantor Statement\n  </button> \n\n  <br>\n\n  <button\n    ion-button \n    block \n    color="color2" \n    (click)="handleGuaranteeStatement()">Guarantees Statement\n  </button> \n\n</ion-content>\n '/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/statements/statements.html"*/,
+        selector: 'page-sign-up',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/'<!--\n<ion-header>\n  <ion-navbar>\n    <ion-title>ONBOARDING</ion-title>\n  </ion-navbar>\n</ion-header>\n-->\n<ion-content padding class="getstart no-scroll">\n  <!--\n  <div class="appForm">\n    <ion-list>\n      \n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="Member Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="member_number" type="number"></ion-input>\n      </ion-item>\n      \n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="ID Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="id_number" type="number"></ion-input>\n      </ion-item>\n\n      \n      <ion-item>\n        <ion-icon name="call"></ion-icon>\n				<ion-input placeholder="Phone Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="phone_number" type="number"></ion-input>\n      </ion-item>\n\n  \n    </ion-list>\n  </div>\n  <br/>\n  <div>\n  <br/>\n    <ion-item>\n      <ion-label \n      color="primarytext" \n      style="font-size: 1.2rem;"><strong>Agree to our <a href><u>Terms</u></a> & <a href><u>Conditions</u></a></strong></ion-label>\n\n      <ion-checkbox color="primarytext" [(ngModel)]="terms" (ionChange)="updateTerms()"></ion-checkbox>\n    </ion-item>	    \n  </div>\n\n  <div>\n  <br/>\n    \n    <button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign Up</button>\n  </div>  \n  -->\n  \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* PopoverController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_socket_socket__["a" /* SocketProvider */],
-        __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"],
-        __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
-], StatementsPage);
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
+], SignUpPage);
 
-//# sourceMappingURL=statements.js.map
+//# sourceMappingURL=sign-up.js.map
 
 /***/ })
 

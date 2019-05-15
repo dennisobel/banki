@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, AlertController, LoadingController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HttpProvider } from "../../providers/http/http"
 
@@ -15,6 +15,7 @@ export class SendmpesaPage {
   private amount:any
 
   constructor(
+    private viewCtrl: ViewController,
     private navCtrl: NavController, 
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
@@ -120,5 +121,9 @@ export class SendmpesaPage {
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
   }  
+
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
 
 }

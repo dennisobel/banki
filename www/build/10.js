@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 339:
+/***/ 369:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SendmpesaPageModule", function() { return SendmpesaPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendmpesa__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sendmpesa__ = __webpack_require__(407);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,7 +29,7 @@ SendmpesaPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__sendmpesa__["a" /* SendmpesaPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sendmpesa__["a" /* SendmpesaPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sendmpesa__["a" /* SendmpesaPage */]),
         ],
     })
 ], SendmpesaPageModule);
@@ -38,15 +38,15 @@ SendmpesaPageModule = __decorate([
 
 /***/ }),
 
-/***/ 371:
+/***/ 407:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SendmpesaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_http_http__ = __webpack_require__(38);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,7 +61,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SendmpesaPage = (function () {
-    function SendmpesaPage(navCtrl, alertCtrl, loadingCtrl, httpHelper, navParams, storage) {
+    function SendmpesaPage(viewCtrl, navCtrl, alertCtrl, loadingCtrl, httpHelper, navParams, storage) {
+        this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
         this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
@@ -149,18 +150,22 @@ var SendmpesaPage = (function () {
     SendmpesaPage.prototype.logOut = function () {
         this.navCtrl.setRoot('WelcomePage');
     };
+    SendmpesaPage.prototype.onClose = function () {
+        this.viewCtrl.dismiss();
+    };
     return SendmpesaPage;
 }());
 SendmpesaPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-sendmpesa',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sendmpesa/sendmpesa.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>Send Mpesa</ion-title>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n    <ion-list>\n      <ion-list-header>Send To Self Or Other</ion-list-header>\n\n      <ion-item>\n        <ion-label>Self/Other</ion-label>\n        <ion-select [(ngModel)]="loanType" placeholder="Select One">\n          <ion-option (ionSelect)="onSelectSelf()"  value="s" >SELF</ion-option>\n          <ion-option (ionSelect)="onSelectOther()"  value="o" >OTHER</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n  <ion-list class="list" radio-group [(ngModel)]="sendTo">\n  <!--\n    <ion-row>\n      <ion-col col-6>\n        <ion-item>\n          <ion-label>SELF</ion-label>\n          <ion-radio color="dark" value="self" (click)="handleSelf()"></ion-radio>\n        </ion-item>      \n      </ion-col>\n      <ion-col col-6>\n        <ion-item>\n          <ion-label>OTHER</ion-label>\n          <ion-radio color="dark" value="other" (click)="handleOther()"></ion-radio>\n        </ion-item>      \n      </ion-col>\n    </ion-row>   \n    -->\n\n  <ion-item>\n    <ion-label floating>Phone Number</ion-label>\n    <ion-input [(ngModel)]="phoneNumber" type="text" id="phone"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>Amount</ion-label>\n    <ion-input [(ngModel)]="amount" type="text" id="amount"></ion-input>\n  </ion-item>      \n  </ion-list>\n\n\n  <hr/>\n\n  <button color="color2" ion-button round (click)="handleContinue()">CONTINUE</button>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sendmpesa/sendmpesa.html"*/,
+        selector: 'page-sendmpesa',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sendmpesa/sendmpesa.html"*/'\n<ion-header>\n  <!--\n  <ion-navbar hideBackButton>\n    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/header.jpg"/>     \n  </ion-navbar>\n  -->\n  <ion-navbar hideBackButton>\n    <!--\n    <ion-buttons start >\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="ios-menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-buttons end >\n      <button ion-button icon-only (click)="logOut()">\n        <ion-icon name="ios-log-out"></ion-icon>\n      </button>\n    </ion-buttons>\n    -->\n    <img height="150px" width="470px" src="assets/images/sendtompesaheader.jpg"/>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <ion-list-header>Send To Self Or Other</ion-list-header>\n\n      <ion-item>\n        <ion-label>Self/Other</ion-label>\n        <ion-select [(ngModel)]="loanType" placeholder="Select One">\n          <ion-option (ionSelect)="onSelectSelf()"  value="s" >SELF</ion-option>\n          <ion-option (ionSelect)="onSelectOther()"  value="o" >OTHER</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n  <!--<ion-list class="list" radio-group [(ngModel)]="sendTo">-->\n  <!--\n    <ion-row>\n      <ion-col col-6>\n        <ion-item>\n          <ion-label>SELF</ion-label>\n          <ion-radio color="dark" value="self" (click)="handleSelf()"></ion-radio>\n        </ion-item>      \n      </ion-col>\n      <ion-col col-6>\n        <ion-item>\n          <ion-label>OTHER</ion-label>\n          <ion-radio color="dark" value="other" (click)="handleOther()"></ion-radio>\n        </ion-item>      \n      </ion-col>\n    </ion-row>   \n    -->\n\n  <ion-item>\n    <ion-input placeholder="Phone Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="phone" type="text" id="account"></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-input placeholder="Amount" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="amount" type="text" id="amount"></ion-input>\n  </ion-item> \n\n  <hr/>\n\n  <button color="faceColor" ion-button block (click)="handleContinue()">CONTINUE</button>\n\n  </div>\n\n\n  <ion-fab left bottom>\n    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>\n  </ion-fab>   \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sendmpesa/sendmpesa.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
         __WEBPACK_IMPORTED_MODULE_3__providers_http_http__["a" /* HttpProvider */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
 ], SendmpesaPage);
 

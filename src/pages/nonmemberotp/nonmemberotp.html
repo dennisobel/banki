@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/enterotp.jpg"/>     
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+
+  <h5>
+    Welcome {{firstname}} {{surname}}, we have sent you a one time password, please enter it below.
+  </h5>
+  
+
+  <ion-item>    
+    <ion-input placeholder="OTP" style="text-align:right; border-radius: 4px;" [(ngModel)]="otp" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button block color="gold" (click)="handleMNO('PrecustomerPage')">Next</button>
+  <br>
+  <button ion-button block outline color="gold" (click)="handleMNO('MnopopPage')">Resend</button>
+  
+</ion-content>

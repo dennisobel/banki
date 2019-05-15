@@ -50,7 +50,7 @@ export class SignInPage {
         ]        
       })
 
-      // alert.present()
+      alert.present()
     })
     .catch((err)=>{
       console.log(err)
@@ -70,7 +70,7 @@ export class SignInPage {
         ]        
       })
 
-      // alert.present()      
+      alert.present()      
     })
     
   }
@@ -84,22 +84,23 @@ export class SignInPage {
   } 
 
   doLogin(page) {
-    console.log("Inside Login...")
-    
+    console.log("Inside Login...")    
     
     let data = {
       passcode:this.password,
       membernumber:this.membernumber
     }
 
+    this.navCtrl.setRoot(page,{data:data});
+
     this.http.login(data).then((val:any)=>{
+      
       console.log("Login Values: ",val)
       this.loading.dismiss()
       if(val.success === true){
         this.navCtrl.setRoot(page,{data:data});
       }
-    })
-    
+    })    
   }
 
 

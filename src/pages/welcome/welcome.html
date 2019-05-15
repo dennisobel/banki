@@ -1,25 +1,9 @@
-<ion-content class="no-scroll">
-  <div class="welcome">
-    <div class="">
-      <!--<h3>BANKI</h3>-->
-      <!--<p>Slogan gose here</p>-->
+<ion-content class="no-scroll getstart">
 
-      <br>
-
-
-      <main>
-      <div class="marker"></div>
-      <h1>K</h1>
-      <h1 class="r">B</h1>
-      <h1 class="e1">S</h1>
-      <h1 class="s1">A</h1>
-      <h1 class="s2">C</h1>
-      <h1 class="e2">C</h1>
-      <h1>O</h1>
-      </main>      
-    </div>
-    <p>Safty deals and easy treatment and service</p>
-    <button ion-button block color="light" (click)="goTo('SignUpPage')">SIGN UP</button>
-    <span (click)="goTo('SignInPage')">Sign in</span>
-  </div>
+  <ion-footer>
+    <button ion-button block outline color="gold" style="color:#ff812c" (click)="goTo('SignUpPage')">Member Login</button>
+    <hr>
+    <button ion-button block clear outline color="gold" style="color:#ff812c" (click)="goTo('NonmemberPage')">Non-member Sign Up</button>
+    <hr>
+  </ion-footer>
 </ion-content>

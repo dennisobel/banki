@@ -1,21 +1,58 @@
+
 <ion-header>
-  <ion-navbar>
+  <!--
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/header.jpg"/>     
+  </ion-navbar>
+  -->
+  <ion-navbar hideBackButton>
+    <!--
     <ion-buttons start >
       <button ion-button icon-only menuToggle>
         <ion-icon name="ios-menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Statements</ion-title>
     <ion-buttons end >
       <button ion-button icon-only (click)="logOut()">
         <ion-icon name="ios-log-out"></ion-icon>
       </button>
     </ion-buttons>
+    -->
+    <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-row>
+    <ion-col col-6>
+      <div (click)="handleEStatement()">
+        <ion-img height="150px" width="150px" src="assets/images/estatements.jpg"></ion-img>
+      </div>        
+    </ion-col>
+    <ion-col col-6>
+      <div (click)="handleGuarantorStatement()">
+        <ion-img height="150px" width="150px" src="assets/images/guarantor.jpg"></ion-img>
+      </div>      
+    </ion-col>
+  </ion-row>
 
+  <ion-row>
+    <ion-col col-3></ion-col>
+    <ion-col col-4>
+      <div (click)="handleGuaranteeStatement()">
+        <ion-img height="150px" width="150px" src="assets/images/guarantee.jpg"></ion-img>
+      </div>    
+    </ion-col>
+    <ion-col col-3></ion-col>
+  </ion-row> 
+
+
+
+
+
+  
+
+  <!--
   <button 
     ion-button 
     block 
@@ -40,6 +77,12 @@
     color="color2" 
     (click)="handleGuaranteeStatement()">Guarantees Statement
   </button> 
+
+  -->
+
+  <ion-fab left bottom>
+    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>
+  </ion-fab>  
 
 </ion-content>
  

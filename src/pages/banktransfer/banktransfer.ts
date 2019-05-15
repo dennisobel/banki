@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the BanktransferPage page.
@@ -16,6 +16,7 @@ import { IonicPage, NavController, LoadingController, AlertController, NavParams
 export class BanktransferPage {
 
   constructor(
+    private viewCtrl: ViewController,
     public navCtrl: NavController, 
     public navParams: NavParams,
     private loadingCtrl: LoadingController, 
@@ -28,8 +29,8 @@ export class BanktransferPage {
 
   handleContinue(){
     let loading = this.loadingCtrl.create({
-        content: 'Processing Bank Transfer...',
-        duration: 3000
+        content: 'Processing...',
+        duration: 20000
     });
     loading.present();    
     /*
@@ -53,5 +54,9 @@ export class BanktransferPage {
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
   }  
+
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
 
 }

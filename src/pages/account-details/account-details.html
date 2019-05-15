@@ -7,7 +7,7 @@
         <ion-icon name="ios-menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>Account Details</ion-title>
+    <ion-title>{{title}} <span>Ksh {{amount}}</span></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,30 +15,52 @@
 
 <ion-content padding>
   <!-- account name , number and currancy -->
+  
   <div class="acountTitle"> 
     <span>Account</span>
 
     <p class="countNum">
-      123
-      <span>xxxxx</span>
-      12345
+      {{accountNum}} <span>Ksh {{amount}}</span>
     </p>
 
-    <span>33324 $</span>
+    
   </div>
+  
 
   <div class="details">
     <p class="myLabel">Account Details</p>
     <ion-grid>
-      <ion-row *ngFor="let item of items">
+      <ion-row>
         <ion-col col-8 text-left>
-          <p>{{item.name}}</p>
+          <p>Product Type</p>
         </ion-col>
         <ion-col col-4 text-right>
-          <p>{{item.date}}</p>
+          <p>{{title}}</p>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col col-8 text-left>
+          <p>Status</p>
+        </ion-col>
+        <ion-col col-4 text-right>
+          <p>{{status}}</p>
+        </ion-col>
+      </ion-row>   
+
+      <ion-row>
+        <ion-col col-8 text-left>
+          <p>Branch</p>
+        </ion-col>
+        <ion-col col-4 text-right>
+          <p>{{branch}}</p>
+        </ion-col>
+      </ion-row>         
     </ion-grid>
-    <button ion-button block color="color2" (click)="goTo('TransactionsPage')">Account Transactions</button>
+    <button ion-button block color="faceColor" (click)="goTo('TransactionsPage')">Account Transactions</button>
   </div>
+
+  <ion-fab left bottom>
+    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>
+  </ion-fab>    
 </ion-content>

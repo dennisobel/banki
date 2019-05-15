@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
 
 import { SocketProvider } from "../../providers/socket/socket";
 import { Socket } from 'ng-socket-io';
@@ -19,6 +19,7 @@ export class TransferPage {
   show=false;
   result;
   constructor(
+    private viewCtrl: ViewController,
     private navCtrl: NavController, 
     private navParams: NavParams,
     private socketHelper: SocketProvider,
@@ -54,6 +55,10 @@ export class TransferPage {
   // logOut Function 
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
+  }
+
+  onClose() {
+    this.viewCtrl.dismiss()
   }
 
 }  

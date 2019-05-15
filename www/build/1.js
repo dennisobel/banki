@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 349:
+/***/ 377:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WelcomePageModule", function() { return WelcomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__welcome__ = __webpack_require__(415);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,7 +29,7 @@ WelcomePageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__welcome__["a" /* WelcomePage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__welcome__["a" /* WelcomePage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__welcome__["a" /* WelcomePage */]),
         ],
     })
 ], WelcomePageModule);
@@ -38,13 +38,13 @@ WelcomePageModule = __decorate([
 
 /***/ }),
 
-/***/ 380:
+/***/ 415:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WelcomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,16 +63,17 @@ var WelcomePage = (function () {
     }
     // goTo Function 
     WelcomePage.prototype.goTo = function (page) {
+        console.log(page);
         this.navCtrl.push(page);
     };
     return WelcomePage;
 }());
 WelcomePage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-welcome',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/welcome/welcome.html"*/'<ion-content class="no-scroll">\n  <div class="welcome">\n    <div class="">\n      <!--<h3>BANKI</h3>-->\n      <!--<p>Slogan gose here</p>-->\n\n      <br>\n\n\n      <main>\n      <div class="marker"></div>\n      <h1>K</h1>\n      <h1 class="r">B</h1>\n      <h1 class="e1">S</h1>\n      <h1 class="s1">A</h1>\n      <h1 class="s2">C</h1>\n      <h1 class="e2">C</h1>\n      <h1>O</h1>\n      </main>      \n    </div>\n    <p>Safty deals and easy treatment and service</p>\n    <button ion-button block color="light" (click)="goTo(\'SignUpPage\')">SIGN UP</button>\n    <span (click)="goTo(\'SignInPage\')">Sign in</span>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/welcome/welcome.html"*/,
+        selector: 'page-welcome',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/welcome/welcome.html"*/'<ion-content class="no-scroll getstart">\n\n  <ion-footer>\n    <button ion-button block outline color="gold" style="color:#ff812c" (click)="goTo(\'SignUpPage\')">Member Login</button>\n    <hr>\n    <button ion-button block clear outline color="gold" style="color:#ff812c" (click)="goTo(\'NonmemberPage\')">Non-member Sign Up</button>\n    <hr>\n  </ion-footer>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/welcome/welcome.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], WelcomePage);
 
 //# sourceMappingURL=welcome.js.map

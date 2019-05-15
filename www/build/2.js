@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 348:
+/***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UpdateProfilePageModule", function() { return UpdateProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__update_profile__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__update_profile__ = __webpack_require__(414);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -29,7 +29,7 @@ UpdateProfilePageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__update_profile__["a" /* UpdateProfilePage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__update_profile__["a" /* UpdateProfilePage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__update_profile__["a" /* UpdateProfilePage */]),
         ],
     })
 ], UpdateProfilePageModule);
@@ -38,13 +38,13 @@ UpdateProfilePageModule = __decorate([
 
 /***/ }),
 
-/***/ 379:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UpdateProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -69,14 +69,17 @@ var UpdateProfilePage = (function () {
     UpdateProfilePage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
+    UpdateProfilePage.prototype.onClose = function () {
+        this.viewCtrl.dismiss();
+    };
     return UpdateProfilePage;
 }());
 UpdateProfilePage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-update-profile',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/update-profile/update-profile.html"*/'\n<ion-header>\n  <ion-toolbar>\n    <ion-buttons>\n      <button ion-button icon-only (click)="dismiss()">\n        <ion-icon name="md-close-circle"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="update">\n    <div class="appForm">\n      <ion-list>\n        <!-- to write full name -->\n        <ion-item>\n          <ion-label stacked>Full Name</ion-label>\n          <ion-input type="text"  placeholder="Full Name" [(ngModel)]="fullName"></ion-input>\n        </ion-item> \n        <!-- select country -->\n        <ion-item >\n          <ion-label stacked>Country</ion-label>\n            <ion-select   [(ngModel)]="country">\n              <ion-option value="england" >England</ion-option> \n              <ion-option value="usa" >USA</ion-option> \n              <ion-option value="france" >France</ion-option> \n            </ion-select>\n        </ion-item>\n          <!-- select city -->\n        <ion-item >\n          <ion-label stacked>City</ion-label>\n            <ion-select   [(ngModel)]="city">\n              <ion-option value="liverpool" >Liverpool</ion-option> \n              <ion-option value="manchester" >Manchester</ion-option> \n              <ion-option value="london" >London</ion-option> \n            </ion-select>\n        </ion-item>\n          <!-- write phone number -->\n        <ion-item>\n          <ion-label stacked>Phone</ion-label>\n          <ion-input type="num"  placeholder="Phone Number" [(ngModel)]="phone"></ion-input>\n        </ion-item> \n        <!-- write e-mailaddress -->\n        <ion-item>\n          <ion-label stacked>E-mail</ion-label>\n          <ion-input type="email"  placeholder="E-mail address" [(ngModel)]="email"></ion-input>\n        </ion-item> \n      </ion-list> \n    </div>\n    <button ion-button block color="color2" (click)="dismiss()">Save</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/update-profile/update-profile.html"*/,
+        selector: 'page-update-profile',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/update-profile/update-profile.html"*/'\n<ion-header>\n  <ion-toolbar>\n    <ion-buttons>\n      <button ion-button icon-only (click)="dismiss()">\n        <ion-icon name="md-close-circle"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="update">\n    <div class="appForm">\n      <ion-list>\n        <!-- to write full name -->\n        <ion-item>\n          <ion-label stacked>Full Name</ion-label>\n          <ion-input type="text"  placeholder="Full Name" [(ngModel)]="fullName"></ion-input>\n        </ion-item> \n        <!-- select country -->\n        <ion-item >\n          <ion-label stacked>Country</ion-label>\n            <ion-select   [(ngModel)]="country">\n              <ion-option value="england" >England</ion-option> \n              <ion-option value="usa" >USA</ion-option> \n              <ion-option value="france" >France</ion-option> \n            </ion-select>\n        </ion-item>\n          <!-- select city -->\n        <ion-item >\n          <ion-label stacked>City</ion-label>\n            <ion-select   [(ngModel)]="city">\n              <ion-option value="liverpool" >Liverpool</ion-option> \n              <ion-option value="manchester" >Manchester</ion-option> \n              <ion-option value="london" >London</ion-option> \n            </ion-select>\n        </ion-item>\n          <!-- write phone number -->\n        <ion-item>\n          <ion-label stacked>Phone</ion-label>\n          <ion-input type="num"  placeholder="Phone Number" [(ngModel)]="phone"></ion-input>\n        </ion-item> \n        <!-- write e-mailaddress -->\n        <ion-item>\n          <ion-label stacked>E-mail</ion-label>\n          <ion-input type="email"  placeholder="E-mail address" [(ngModel)]="email"></ion-input>\n        </ion-item> \n      </ion-list> \n    </div>\n    <button ion-button block color="color2" (click)="dismiss()">Save</button>\n  </div>\n\n  <ion-fab left bottom>\n    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>\n  </ion-fab>   \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/update-profile/update-profile.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]])
 ], UpdateProfilePage);
 
 //# sourceMappingURL=update-profile.js.map

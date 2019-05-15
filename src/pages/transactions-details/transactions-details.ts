@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams } from 'ionic-angular';
+import { createOfflineCompileUrlResolver } from '@angular/compiler';
 
 
 @IonicPage()
@@ -9,7 +10,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TransactionsDetailsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private viewCtrl: ViewController, public navParams: NavParams) {
   }
 
   items=[
@@ -20,4 +21,8 @@ export class TransactionsDetailsPage {
     {col1:'Debit/Credit', col2:'Debit'},
     {col1:'Reference', col2:'02154860.15463'},
   ]
+
+  onClose(){
+    this.viewCtrl.dismiss()
+  }
 }

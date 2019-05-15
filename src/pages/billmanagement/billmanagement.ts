@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, AlertController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { SocketProvider } from "../../providers/socket/socket";
 import { Socket } from 'ng-socket-io';
@@ -18,6 +18,7 @@ export class BillmanagementPage {
   private mainSav:any;  
 
   constructor(
+    private viewCtrl: ViewController,
     private storage: Storage,
     private socketHelper: SocketProvider,
     private socket: Socket,
@@ -66,8 +67,8 @@ export class BillmanagementPage {
   }
 
   bills=[
-    {name:'Airtime',component:''},
-    {name:'Electricity',component:''}
+    {name:'Airtime',component:'', image:'assets/images/buyairtime.jpg'},
+    {name:'Electricity',component:'', image:'assets/images/buytokens.jpg'}
   ]
 
   ionViewDidLoad() {
@@ -136,6 +137,10 @@ export class BillmanagementPage {
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
   }  
+
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
 
 }
 

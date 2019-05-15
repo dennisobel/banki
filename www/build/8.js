@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 343:
+/***/ 371:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignUpPageModule", function() { return SignUpPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SignInPageModule", function() { return SignInPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_in__ = __webpack_require__(409);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,34 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SignUpPageModule = (function () {
-    function SignUpPageModule() {
+var SignInPageModule = (function () {
+    function SignInPageModule() {
     }
-    return SignUpPageModule;
+    return SignInPageModule;
 }());
-SignUpPageModule = __decorate([
+SignInPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */],
+            __WEBPACK_IMPORTED_MODULE_2__sign_in__["a" /* SignInPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sign_up__["a" /* SignUpPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__sign_in__["a" /* SignInPage */]),
         ],
     })
-], SignUpPageModule);
+], SignInPageModule);
 
-//# sourceMappingURL=sign-up.module.js.map
+//# sourceMappingURL=sign-in.module.js.map
 
 /***/ }),
 
-/***/ 374:
+/***/ 409:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignUpPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SignInPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__summary_summary__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,146 +58,109 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-// Providers
 
-var SignUpPage = (function () {
-    function SignUpPage(navCtrl, toastCtrl, alertCtrl, loadingCtrl, navParams, http) {
+
+var SignInPage = (function () {
+    function SignInPage(navCtrl, modalCtrl, alertCtrl, loadingCtrl, http, navParams) {
         this.navCtrl = navCtrl;
-        this.toastCtrl = toastCtrl;
+        this.modalCtrl = modalCtrl;
         this.alertCtrl = alertCtrl;
         this.loadingCtrl = loadingCtrl;
-        this.navParams = navParams;
         this.http = http;
-        this.terms = false;
+        this.navParams = navParams;
     }
-    // set root page 
-    SignUpPage.prototype.doLogin = function (page) {
+    SignInPage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        var signUpData = {
-            idnumber: this.id_number,
-            membernumber: this.member_number,
-            phonenumber: this.phone_number
-        };
-        if (this.terms == false) {
-            var termsCondAlert = this.alertCtrl.create({
-                title: "Please agree to the terms and conditions",
+        this.showLoader();
+        //Check if already authenticated
+        this.http.checkAuthentication()
+            .then(function (res) {
+            console.log("already authorized");
+            _this.loading.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__summary_summary__["a" /* SummaryPage */]);
+        }, function (err) {
+            _this.loading.dismiss();
+            var alert = _this.alertCtrl.create({
+                title: "CONNECTION ERROR",
+                message: "Check internet connection and retry.",
                 buttons: [
                     {
-                        text: "OK",
-                    }
+                        text: 'Ok',
+                        role: 'cancel',
+                        handler: function () {
+                            console.log('Cancel clicked');
+                        }
+                    },
                 ]
             });
-            termsCondAlert.present();
-        }
-        else {
-            this.http.joinSacco(signUpData)
-                .then(function (result) {
-                _this.navCtrl.setRoot(page);
-            }, function (err) {
-            });
-            var accountcreatedalert = this.alertCtrl.create({
-                title: "ALMOST DONE",
-                message: "You will receive a verification code shortly. Enter it here.",
-                inputs: [
-                    {
-                        name: "otp",
-                        placeholder: "Enter Verification Code Here"
-                    }
-                ],
+            alert.present();
+        })
+            .catch(function (err) {
+            console.log(err);
+            _this.loading.dismiss();
+            var alert = _this.alertCtrl.create({
+                title: "CONNECTION ERROR",
+                message: "Check internet connection and retry.",
                 buttons: [
                     {
-                        text: "Submit",
-                        handler: function (data) {
-                            _this.http.verifyUser(data);
-                            // .subscribe(res => console.log(res))
-                            // this.navCtrl.push(SigninPage)
-                            var passAlert = _this.alertCtrl.create({
-                                title: "PASSCODE",
-                                message: "Account has been verified. Now enter a memorable 4-digit passcode.",
-                                inputs: [
-                                    {
-                                        name: "passcode",
-                                        placeholder: "Passcode"
-                                    }
-                                ],
-                                buttons: [
-                                    {
-                                        text: "Submit",
-                                        handler: function (data) {
-                                            _this.http.passCode(data);
-                                            console.log(data);
-                                            _this.navCtrl.push(page);
-                                        }
-                                    }
-                                ],
-                                cssClass: 'alertCustomCss'
-                            });
-                            passAlert.present();
+                        text: 'Ok',
+                        role: 'cancel',
+                        handler: function () {
+                            console.log('Cancel clicked');
                         }
-                    }
-                ],
-                cssClass: 'alertCustomCss'
+                    },
+                ]
             });
-            accountcreatedalert.present();
-        }
-    };
-    SignUpPage.prototype.onVerification = function () {
-        var message = "Verification code will be sent to you via SMS";
-        var duration = 3000;
-        var position = 'top';
-        this.presentToast(message, duration, position);
-    };
-    //toast
-    SignUpPage.prototype.presentToast = function (message, duration, position) {
-        var toast = this.toastCtrl.create({
-            message: message,
-            duration: duration,
-            position: position
+            alert.present();
         });
-        toast.onDidDismiss(function () {
-            console.log('Dismissed toast');
-        });
-        toast.present();
     };
-    SignUpPage.prototype.updateTerms = function () {
-        if (this.id_number === '' || this.phone_number === '') {
-            var validationAlert = this.alertCtrl.create({
-                title: "Please check form for empty fields",
-                buttons: [
-                    {
-                        text: "OK"
-                    }
-                ],
-                cssClass: 'alertCustomCss'
-            });
-            validationAlert.present();
-        }
-        else {
-            console.log("Terms new state:" + this.terms);
-        }
-    };
-    SignUpPage.prototype.showLoader = function () {
+    SignInPage.prototype.showLoader = function () {
         this.loading = this.loadingCtrl.create({
             content: 'Authenticating...'
         });
         this.loading.present();
     };
-    return SignUpPage;
+    SignInPage.prototype.doLogin = function (page) {
+        var _this = this;
+        console.log("Inside Login...");
+        var data = {
+            passcode: this.password,
+            membernumber: this.membernumber
+        };
+        this.navCtrl.setRoot(page, { data: data });
+        this.http.login(data).then(function (val) {
+            console.log("Login Values: ", val);
+            _this.loading.dismiss();
+            if (val.success === true) {
+                _this.navCtrl.setRoot(page, { data: data });
+            }
+        });
+    };
+    // Call Forgot Password Modal
+    SignInPage.prototype.presentModal = function (modalPage) {
+        var modal = this.modalCtrl.create(modalPage);
+        modal.present();
+    };
+    SignInPage.prototype.doUnlock = function (page) {
+        var modal = this.modalCtrl.create(page);
+        modal.present();
+    };
+    return SignInPage;
 }());
-SignUpPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+SignInPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-sign-up',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>SIGN ME UP</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <!-- Member No input -->\n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="Member Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="member_number" type="number"></ion-input>\n      </ion-item>\n      <!-- ID input -->\n      <ion-item>\n        <ion-icon name="person"></ion-icon>\n        <ion-input placeholder="ID Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="id_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- Phone Number input -->\n      <ion-item>\n        <ion-icon name="call"></ion-icon>\n				<ion-input placeholder="Phone Number" style="border: 1px solid black; text-align:right; border-radius: 4px;" [(ngModel)]="phone_number" type="number"></ion-input>\n      </ion-item>\n\n      <!-- password input -->\n      <!--\n      <ion-item>\n        <ion-label floating>Set P.I.N</ion-label>\n        <ion-icon name="ios-lock-outline" item-left></ion-icon>\n        <ion-input type="password"></ion-input>\n      </ion-item>  -->    \n    </ion-list>\n  </div>\n  <br/>\n  <div>\n  <br/>\n    <ion-item>\n      <ion-label \n      color="primarytext" \n      style="font-size: 1.2rem;"><strong>Agree to our <a href><u>Terms</u></a> & <a href><u>Conditions</u></a></strong></ion-label>\n\n      <ion-checkbox color="primarytext" [(ngModel)]="terms" (ionChange)="updateTerms()"></ion-checkbox>\n    </ion-item>	    \n  </div>\n\n  <div>\n  <br/>\n    <!--<button ion-button block color="color2" (click)="doCancel()">Sign in</button>-->\n    <button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign Up</button>\n  </div>  \n  <!--<button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign up</button>-->\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-up/sign-up.html"*/,
+        selector: 'page-sign-in',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-in/sign-in.html"*/'\n<ion-header>\n  <ion-navbar>\n    <ion-title>SIGN IN</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <div class="appForm">\n    <ion-list>\n      <!-- Email input -->\n      \n      <ion-item>        \n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n        <ion-input placeholder="Member Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="membernumber" type="text"></ion-input>\n      </ion-item>\n      <!-- password input -->\n      <ion-item>\n        <ion-icon name="ios-lock-outline" item-left></ion-icon>\n        <ion-input placeholder="P.I.N Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="password" type="password"></ion-input>\n      </ion-item>\n    </ion-list>\n  </div>\n  <!--<button ion-button block color="color2" (click)="doUnlock(\'LockPage\')">UNLOCK APP (Feature Under Construction)</button>-->\n  <br>\n  <button ion-button block color="color2" (click)="doLogin(\'SummaryPage\')">Sign in</button>\n  <p float-right (click)=" presentModal(\'ForgotPasswordPage\')">Forgot Password ?</p>\n\n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/sign-in/sign-in.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */]])
-], SignUpPage);
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+], SignInPage);
 
-//# sourceMappingURL=sign-up.js.map
+//# sourceMappingURL=sign-in.js.map
 
 /***/ })
 

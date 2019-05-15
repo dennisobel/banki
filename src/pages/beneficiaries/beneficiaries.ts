@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, NavParams } from 'ionic-angular';
 
 
 @IonicPage()
@@ -9,7 +9,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BeneficiariesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   // goTo Function 
@@ -20,5 +20,9 @@ export class BeneficiariesPage {
   // logOut Function 
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
+  }
+
+  onClose() {
+    this.viewCtrl.dismiss()
   }
 }

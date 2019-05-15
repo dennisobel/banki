@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, AlertController, LoadingController, NavParams } from 'ionic-angular';
 import { SocketProvider } from "../../providers/socket/socket";
 import { HttpProvider } from "../../providers/http/http"
 
@@ -15,6 +15,7 @@ export class DepositPage {
   private accountNumber:number;
 
   constructor(
+    private viewCtrl: ViewController,
     private navCtrl: NavController, 
     private navParams: NavParams,
     private alertCtrl: AlertController,
@@ -36,6 +37,7 @@ export class DepositPage {
   }
 
   handleContinue(){
+    const paybill:any = 400444;
     let loading = this.loadingCtrl.create({
         content: 'Processing Deposit...',
         duration: 3000
@@ -57,7 +59,17 @@ export class DepositPage {
           text: 'Ok',
           handler: ()=>{
             // handle deposit
-            this.socketHelper.depositFromMpesa({accountNumber:this.accountNumber,amount:this.amount,paybill:40014})
+            /*
+            this.socketHelper.depositFromMpesa({accountNumber:this.accountNumber,amount:this.amount,paybill})
+            .then(() => {
+              
+            })
+            */
+
+            this.httpHelper.depositFromMpesa({accountNumber:this.accountNumber,amount:this.amount,paybill})
+            .then((data:any) => {
+              console.log('DEPOSIT FROM MPESA HTTP REQUEST FEEDBACK',data)
+            })
           }
         }
       ]
@@ -69,5 +81,9 @@ export class DepositPage {
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
   }  
+
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
 
 }

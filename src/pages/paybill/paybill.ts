@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
+import { IonicPage, ViewController, NavController, LoadingController, AlertController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the PaybillPage page.
@@ -18,7 +18,7 @@ export class PaybillPage {
   private amount:any;
   private account:any;
 
-  constructor(public navCtrl: NavController, private alertCtrl:AlertController, private loadingCtrl: LoadingController,  public navParams: NavParams) {
+  constructor(private viewCtrl: ViewController, public navCtrl: NavController, private alertCtrl:AlertController, private loadingCtrl: LoadingController,  public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -27,8 +27,8 @@ export class PaybillPage {
 
   handleContinue(){
     let loading = this.loadingCtrl.create({
-        content: 'Processing Paybill Payment...',
-        duration: 3000
+        content: 'Processing...',
+        duration: 20000
     });
     loading.present();     
     /*
@@ -51,5 +51,9 @@ export class PaybillPage {
   logOut(){
     this.navCtrl.setRoot('WelcomePage');
   }  
+
+  onClose() {
+    this.viewCtrl.dismiss()
+  }
 
 }

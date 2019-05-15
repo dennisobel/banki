@@ -11,6 +11,11 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
+// Popover
+$popover-md-width: 280px; $popover-ios-width: 280px; $popover-wp-width: 280px;
+
+
+
 
 @import "ionic.globals";
 
@@ -38,15 +43,26 @@ $colors: (
   danger:     #f53d3d,
   light:      #fff,
   dark:       #000,
-  color1:     #031c3f,
+  // color1:     #031c3f,
+  // color1: #1F9AFD,
+  color1: #ffffff,
   color2:     #3a5cf1,
   color3:     #494949,
-  color4:     #fff,
-  color5:   #383737,
-  color6:   #eeecec,
-  faceColor:  #3a5a98,
+  color4:     #fff,  
+  color5:     #383737,
+  color6:     #eeecec,
+  faceColor:  #170d50,
   twitterColor:#65a2d9,
-  googleColor:#ff5450
+  googleColor:#ff5450,
+  popOverBtn: #247e01,
+  resendBtn: #132502,
+  iconsandtext:#FFFFFF,
+  gold: #ff812c
+
+  // Lucas' Color Schemes
+  
+
+
 );
 
 // color4:     #eeeff1,

@@ -1,4 +1,5 @@
 page-lock {
+    /*
     .content-ios{
         background:rgba(color($colors,color3),.75);
         .scroll-content{
@@ -28,5 +29,11 @@ page-lock {
                 padding:0px $mainMarg/4;
             }
         }
+    }
+    */
+    .getstart{
+        background-image: url('../../assets/images/female.jpg');
+        background-repeat: no-repeat;
+        background-size:cover;
     }
 }

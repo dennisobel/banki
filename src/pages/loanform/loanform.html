@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Your are eligible for a {{loanType}} worth {{loanLimit}}</h3>  
+
+  <ion-list>
+
+    <!--
+    <ion-item>
+      <ion-label stacked>Interest Rate</ion-label>
+      <ion-input placeholder="%" type="text"></ion-input>
+    </ion-item>
+    -->
+
+    <ion-item>
+      <ion-label stacked>Amount</ion-label>
+      <ion-input placeholder="Ksh"type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> 
+      <!-- (keyup.enter)="onAmount($event)" -->
+    </ion-item>
+
+    <!--
+    <ion-item>
+      <ion-label stacked>Period in months</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item> 
+    --> 
+
+    <ion-item >
+      <ion-label stacked>Security</ion-label>
+        <ion-select [(ngModel)]="security">
+          <ion-option *ngFor="let data of securityArray" value="{{data.value}}" (ionSelect)="onSelect(data.value)" >{{data.security}}</ion-option>  
+        </ion-select>        
+    </ion-item>      
+
+  </ion-list>  
+
+  <button ion-button block color="faceColor" (click)="loanSubmit()">Submit Loan Request</button>
+
+  <ion-fab left bottom>
+    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>
+  </ion-fab> 
+</ion-content>

@@ -1,8 +1,20 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, AlertController, LoadingController } from 'ionic-angular';
+import { 
+	IonicPage, 
+	NavController, 
+	NavParams, 
+	ToastController, 
+	AlertController, 
+	LoadingController,
+	PopoverController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 // Providers
 import { HttpProvider } from "../../providers/http/http";
+import { OnboardPage } from '../onboard/onboard';
+
+// Page
+import { PhonepopupPage } from '../phonepopup/phonepopup';
 
 @IonicPage()
 @Component({
@@ -18,12 +30,196 @@ export class SignUpPage {
   private loading: any;
 
 	constructor(
+		private popoverCtrl: PopoverController,
 		private navCtrl: NavController,
 		private toastCtrl: ToastController,
 		private alertCtrl: AlertController,
 		private loadingCtrl: LoadingController, 
-    private navParams: NavParams,
-    private http: HttpProvider) {
+	  private navParams: NavParams,
+		private http: HttpProvider,
+		private storage: Storage) {
+	}
+
+	ionViewDidLoad() {
+		this.presentPopover(PhonepopupPage);
+		
+		let phoneNoAlert = this.alertCtrl.create({
+			title: 'GET STARTED',
+			subTitle: 'Enter Your Phone Number',
+			inputs: [
+				{
+					name: 'phoneNumber',
+					type: 'text',
+					placeholder: '254712345678'
+				}
+			],
+			buttons: [
+				{
+					text: 'Next',
+					handler: (phoneNumber) => {	
+						let phone_number:any = phoneNumber;			
+						console.log(phoneNumber)		
+						this.http.submitPhoneNumber(phoneNumber).then((data: any) => {	
+							// store locally
+							this.storage.set('memberData',data.memberData[0])
+							if(data.memberExist == false) {
+								let memberName = data.memberData[0]['MB.CUST.NAME..................']
+								let OTPAlert = this.alertCtrl.create({
+									title: `Welcome ${memberName}`,
+									subTitle: 'We have sent you a One Time Password. Please enter it below.',
+									inputs: [
+										{
+											name: 'otp',
+											type: 'text',
+											placeholder: 'One Time Password'
+										}
+									],
+									buttons: [
+										{
+											text: 'Next',
+											handler: (otpData) => {
+												this.http.submitOTP(otpData)
+												.then((data: any) => {
+													if(data.verified == true) {
+														let mnoAlert = this.alertCtrl.create({
+															title: 'Enter Your SACCO Member Number',
+															inputs:[
+																{
+																	name: 'mno',
+																	type: 'text',
+																	placeholder: 'Member Number',
+																}
+															],
+															buttons:[
+																{
+																	text: 'Next',
+																	handler: (mno) => {
+																		// compare mno to existing one.
+																		this.http.submitMNO(mno)
+																		.then((data:any) => {
+																			if(data.verified === true) {
+																				// proceed to pin
+																				let pinAlert = this.alertCtrl.create({
+																					title: 'Enter a memorable password',
+																					inputs: [
+																						{
+																							name: 'password',
+																							type: 'password',
+																							placeholder: 'password'
+																						}
+																					],
+																					buttons: [
+																						{
+																							text: 'Next',
+																							handler: (password) => {
+																								this.http.submitPassword({password,mno})
+																								.then((data:any) => {
+																									console.log('PASSWORD FEEDBACK: ',data)
+																									if(data.success === true) {
+																										// proceed
+																										let welcomeAlert = this.alertCtrl.create({
+																											title: `Welcome ${memberName}`,
+																											buttons: [
+																												{
+																													text: 'Proceed',
+																													handler: () => {
+																														// navigate to home
+																														this.navCtrl.push('SummaryPage')
+																													}
+																												}
+																											]
+																										})
+																										welcomeAlert.present()
+																									}
+																								})
+																							}
+																						}
+																					]
+																				})
+
+																				pinAlert.present()
+																			} else if(data.verified === null || data.verified === false) {
+																				// mno dont exist logic
+																				let mnoErrorAlert = this.alertCtrl.create({
+																					title: 'This member number does not exist.',
+																					buttons: [
+																						{
+																							text: 'Retry',
+																							handler: () => {
+																								this.ionViewDidLoad()
+																							}
+																						}
+																					]
+																				})
+
+																				mnoErrorAlert.present();
+																			}
+																		})
+																	}
+																}
+															]
+														})
+
+														mnoAlert.present()
+													} else if(data.verified == false) {
+														console.log('resend otp')
+														// Resend OTP Logic
+													}
+												})
+											}
+										}
+									]
+								})
+								OTPAlert.present()
+							} else if(data.memberExist == true) {
+								let memberNumber = data.memberData[0]['MB.CUST.NAME..................']
+								let userExistAlert = this.alertCtrl.create({
+									title: `Welcome ${memberNumber}. Please enter your member number and password to proceed`,
+									inputs: [
+										{
+											name: 'mno',
+											type: 'text',
+											placeholder: 'Member Number'
+										},										
+										{
+											name: 'password',
+											type: 'password',
+											placeholder: 'Password'
+										}
+									],
+									buttons: [
+										{
+											text: 'Login',
+											handler: ({password,mno,phoneNumber}) => {
+												this.http.submitLogin({password,mno,phoneNumber:phone_number.phoneNumber})
+												.then((data:any) => {
+													console.log('SUBMIT LOGIN RES: ',data);
+													if(data.success === true) {
+														this.navCtrl.push('SummaryPage')
+													}
+												})
+											}
+										},
+										{
+											text: 'Cancel',
+											role: 'cancel',
+											handler: () => {
+												console.log("On Cancel Join Sacco")
+											}
+										}
+									]
+								})
+
+								userExistAlert.present();
+							}							
+
+						})
+					}
+				}
+			]
+		});
+
+		// phoneNoAlert.present();
 	}
 
   // set root page 
@@ -128,6 +324,26 @@ export class SignUpPage {
 
 	  toast.present();
   }
+
+  presentPopover(page) {
+    let ev = {
+      target : {
+        getBoundingClientRect : () => {
+          return {
+            top: '100', left:'100'
+          };
+        }
+      }
+    };
+    let popover = this.popoverCtrl.create(
+      page,
+      {ev},
+      {cssClass: 'alertCustomCss',showBackdrop: true},
+  )
+    popover.present({
+      // ev: myEvent
+    })
+  }
   
 	updateTerms(){
 		if(this.id_number === '' ||  this.phone_number === ''){
@@ -159,3 +375,6 @@ export class SignUpPage {
 }   
 
 } 
+
+
+						

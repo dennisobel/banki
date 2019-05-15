@@ -1,13 +1,18 @@
+<!--
+<ion-header>
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/enterpno.jpg"/>     
+  </ion-navbar>
+</ion-header>
+-->
 
-<ion-content padding>
-  <div class="appForm">
-    <p>Unlock App</p>
-    <!-- buttons to send or Cancal -->
-
+<ion-content padding class="getstart no-scroll">
+  <div class="">
+    <h2 align="center" style="color:#ff812c">Enter PIN</h2>
     <ion-item>
       <ion-label floating></ion-label>
       <ion-icon name="ios-lock-outline" item-left></ion-icon>
-      <ion-input [(ngModel)]="pin" type="password" id="pin"></ion-input>
+      <ion-input style="color:#ff812c" [(ngModel)]="pin" type="password" id="pin" value=""></ion-input>
     </ion-item>
 
     <hr>
@@ -15,50 +20,59 @@
     <ion-grid>
       <ion-row>
         <ion-col col-4>
-          <button ion-button block color="color1" >1</button>
+          <button ion-button block clear color="color1" (click)="handle(1)" >1</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" >2</button>
+          <button ion-button block clear color="color1" (click)="handle(2)">2</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" >3</button>
+          <button ion-button block clear color="color1" (click)="handle(3)">3</button>
         </ion-col>        
       </ion-row>
 
+      <br>
+
       <ion-row>
         <ion-col col-4>
-          <button ion-button block color="color1" >4</button>
+          <button ion-button block clear color="color1" (click)="handle(4)">4</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" >5</button>
+          <button ion-button block clear color="color1" (click)="handle(5)">5</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" >6</button>
+          <button ion-button block clear color="color1" (click)="handle(6)">6</button>
         </ion-col>        
       </ion-row>     
 
-      <ion-row>
-        <ion-col col-4>
-          <button ion-button block color="color1" >7</button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button block color="color1" >8</button>
-        </ion-col>
-        <ion-col col-4>
-          <button ion-button block color="color1" >9</button>
-        </ion-col>        
-      </ion-row>  
+      <br>
 
       <ion-row>
         <ion-col col-4>
-          <button ion-button block color="color1" ><ion-icon name="checkmark"></ion-icon></button>
+          <button ion-button block clear color="color1" (click)="handle(7)">7</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" >0</button>
+          <button ion-button block clear color="color1" (click)="handle(8)">8</button>
         </ion-col>
         <ion-col col-4>
-          <button ion-button block color="color1" ><ion-icon name="arrow-back"></ion-icon></button>
+          <button ion-button block clear color="color1" (click)="handle(9)">9</button>
         </ion-col>        
+      </ion-row>  
+
+      <br>
+
+      <ion-row>
+        <ion-col col-4>
+          <button ion-button block clear color="resendBtn" (click)="handleBack()"><ion-icon name="arrow-back"></ion-icon></button>
+        </ion-col>           
+
+        <ion-col col-4>
+          <button ion-button block clear color="color1" (click)="handle(0)">0</button>
+        </ion-col>
+
+        <ion-col col-4>
+          <button ion-button block clear color="color1" (click)="handleGo()"><ion-icon name="md-checkmark-circle"></ion-icon></button>
+        </ion-col>        
+   
       </ion-row>             
     </ion-grid>
     

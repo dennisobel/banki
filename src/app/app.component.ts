@@ -13,6 +13,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = 'WelcomePage';
+  // rootPage: any = 'SummaryPage';
 
   pages: Array<{title: string, component: any,icon:any}>;
   public animateVarible:boolean=false;
@@ -25,12 +26,12 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Main Menu', component: 'SummaryPage',icon:'banki-summary' },
-      { title: 'Savings and Balances', component: 'PersonalAccountPage',icon:'banki-user' },
+      { title: 'Our Services', component: 'SummaryPage',icon:'banki-summary' },
+      // { title: 'Savings and Balances', component: 'PersonalAccountPage',icon:'banki-user' },
       // { title: 'Benficiariers', component: 'BeneficiariesPage',icon:'banki-exchange' },
       { title: 'Setting', component: 'SettingPage',icon:'banki-setting' },
       { title: 'Profile', component: 'ProfilePage',icon:'banki-user-1' },
-      { title: 'Currancy Converter', component: 'CurrencyConvertorPage',icon:'banki-converter' },
+      // { title: 'Currancy Converter', component: 'CurrencyConvertorPage',icon:'banki-converter' },
       // { title: 'Internal Transfer', component: 'TransferPage',icon:'banki-transfer' },
       { title: 'Find us', component: 'FindUsPage',icon:'banki-location' },
       { title: 'Contact us', component: 'ContactUsPage',icon:'banki-phone' },

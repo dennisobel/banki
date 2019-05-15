@@ -1,0 +1,52 @@
+
+<ion-header>
+  <!--
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/header.jpg"/>     
+  </ion-navbar>
+  -->
+  <ion-navbar hideBackButton>
+    <!--
+    <ion-buttons start >
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="ios-menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end >
+      <button ion-button icon-only (click)="logOut()">
+        <ion-icon name="ios-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+    -->
+    <img height="150px" width="470px" src="assets/images/dividendsheader.jpg"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Calculate Compound Returns</h3>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Money Invested</ion-label>
+      <ion-input placeholder="Ksh" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Return Rate</ion-label>
+      <ion-input placeholder="%"type="text"></ion-input> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Number of Years</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>    
+
+  </ion-list>  
+
+  <button ion-button block color="faceColor" (click)="handleDividendCalculator()">Calculate My Returns</button>
+
+  <ion-fab left bottom>
+    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>
+  </ion-fab> 
+</ion-content>

@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <img  class="imagestyle" object-fit: cover height="70px"  width="470px" src="assets/images/entermnoheader.jpg"/>     
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="no-scroll">
+
+  <ion-item>    
+    <ion-input placeholder="Member Number" style="text-align:right; border-radius: 4px;" [(ngModel)]="mno" type="text"></ion-input>
+  </ion-item>
+
+  <button ion-button block color="gold" (click)="handlePIN('LockPage','SummaryPage')">Next</button>
+  
+</ion-content>

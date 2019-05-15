@@ -282,6 +282,38 @@ module.exports = [
     "clobbers": [
       "CameraPopoverHandle"
     ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransferError",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransferError.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransferError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-file-transfer.FileTransfer",
+    "file": "plugins/cordova-plugin-file-transfer/www/FileTransfer.js",
+    "pluginId": "cordova-plugin-file-transfer",
+    "clobbers": [
+      "window.FileTransfer"
+    ]
+  },
+  {
+    "id": "cordova-plugin-telerik-imagepicker.ImagePicker",
+    "file": "plugins/cordova-plugin-telerik-imagepicker/www/imagepicker.js",
+    "pluginId": "cordova-plugin-telerik-imagepicker",
+    "clobbers": [
+      "plugins.imagePicker"
+    ]
+  },
+  {
+    "id": "com-badrit-base64.Base64",
+    "file": "plugins/com-badrit-base64/www/Base64.js",
+    "pluginId": "com-badrit-base64",
+    "clobbers": [
+      "navigator.Base64"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -296,7 +328,10 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-sqlite-storage": "2.4.0",
-  "cordova-plugin-camera": "2.4.1"
+  "cordova-plugin-camera": "2.4.1",
+  "cordova-plugin-file-transfer": "1.7.1",
+  "cordova-plugin-telerik-imagepicker": "2.3.2",
+  "com-badrit-base64": "0.2.0"
 };
 // BOTTOM OF METADATA
 });
