@@ -2,23 +2,23 @@ import { Injectable } from '@angular/core';
 import { Socket } from 'ng-socket-io';
 import { Storage } from '@ionic/storage';
 import { resolve } from 'dns';
+import { rejects } from 'assert';
 
 @Injectable()
 
 export class SocketProvider {
-
+  // SOCKET CONNECTION AND LOCAL STORAGE SETUP 
   constructor(
     private socket: Socket,
-    private storage: Storage){}
-
+    private storage: Storage
+  ){}
   
   onConnect(){
     this.socket.on('connect',()=>{
     	var sessionid = this.socket.ioSocket.id;
       console.log("socket id is: ",sessionid)
     })
-  }
-  
+  }  
 
   onVerified(){
     return new Promise((resolve,reject)=>{
@@ -289,7 +289,6 @@ getGuarantees(data){
     
   }
 
-
   loanBalances(data){
     console.log("navparams data: ", data)
     // this.storage.get('loginData')
@@ -308,6 +307,12 @@ getGuarantees(data){
       resolve(this.socket.emit("loanBalances",data))
     })
   }  
+
+  loanApplication(data){
+    return new Promise((resolve,reject)=>{
+      resolve(this.socket.emit("loanApplication",data))
+    })
+  }
 
   depositFromMpesa(data){
     console.log("DEPOSIT TO MPESA DATA: ", data)

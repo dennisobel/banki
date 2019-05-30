@@ -1,0 +1,16 @@
+Loan Balances
+Loan Eligibility
+Loan Request
+Loan Repayment
+User Validation_CRB Check
+Credit Score
+Account Details
+Transaction Statements
+Dividends
+Transfer funds from account to MPesa
+Deposit funds to account from MPesa
+PayBill_Buy Goods
+Internal Funds Transfer
+Transfer funds to another bank
+Guarantors List
+Guarantees List 

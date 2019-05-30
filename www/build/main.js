@@ -8,10 +8,10 @@ webpackJsonp([47],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_socket_socket__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_http_http__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lock_lock__ = __webpack_require__(183);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -200,7 +200,7 @@ To get something you never had, you have to do something you never did.
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MnopaspopPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(31);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -493,10 +493,10 @@ module.exports = webpackAsyncContext;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LockPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_socket_io__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_socket_io__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ng_socket_io__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_http_http__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_socket_socket__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__summary_summary__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -632,465 +632,49 @@ var LoancategoryProvider = (function () {
         return new Promise(function (resolve, reject) {
             resolve(_this.categories = [
                 {
-                    id: 1000,
-                    description: "Current Accounts",
-                    shortname: "Curr Acct",
-                    product: "AC"
-                },
-                {
-                    id: 1001,
-                    description: "Dev Loan Servicing A/c",
-                    shortname: "DevelopLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1002,
-                    description: "Loan Disbursement A/c",
-                    shortname: "Loan Disb Ac",
-                    product: "AC"
-                },
-                {
-                    id: 1003,
-                    description: "Education Loan Servicing A/c",
-                    shortname: "EducLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1004,
-                    description: "Express Loan Servicing A/c",
-                    shortname: "ExpresLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1005,
-                    description: "Top-up Loan Servicing A/c",
-                    shortname: "TopUpLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1006,
-                    description: "Micro Loan Servicing A/c",
-                    shortname: "MicroLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1007,
-                    description: "Mortgage Loan Servicing A/c",
-                    shortname: "MrtgLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1008,
-                    description: "Asset Finance Loan Servicing A/c",
-                    shortname: "AsstFinLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1009,
-                    description: "Staff Loans Servicing A/c",
-                    shortname: "StaffLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1010,
-                    description: "Karibu Loan Servicing A/c",
-                    shortname: "KaribuLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1011,
-                    description: "Domestic Loan Servicing A/c",
-                    shortname: "DomeLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1012,
-                    description: "Asset Finance Loan Servicing A/c",
-                    shortname: "AssetFinance",
-                    product: "AC"
-                },
-                {
-                    id: 1013,
-                    description: "Boresha Loan Servicing A/c",
-                    shortname: "BoreshaLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1014,
-                    description: "Smart Life Ln Servicing A/c",
-                    shortname: "SmartLife Loan",
-                    product: "AC"
-                },
-                {
-                    id: 1015,
-                    description: "SuperLoan Servicing A/c",
-                    shortname: "SuperLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1016,
-                    description: "MLoan",
-                    shortname: "MLoan",
-                    product: "AC"
-                },
-                {
-                    id: 1017,
-                    description: "Electricity Loans",
-                    shortname: "Elect Loan",
-                    product: "AC"
-                },
-                {
-                    id: 1018,
-                    description: "MB FOSA ADVANCE",
-                    shortname: "MB FOSA ADV",
-                    product: "AC"
-                },
-                {
-                    id: 1019,
-                    description: "KOPA CREDIT",
-                    shortname: "KOPA CREDIT",
-                    product: "AC"
-                },
-                {
-                    id: 1039,
-                    description: "Dividend Account",
-                    shortname: "DivAcct",
-                    product: "AC"
-                },
-                {
-                    id: 1040,
-                    description: "FRONT OFFICE ACTIVITIES ACCOUNTS",
-                    shortname: "FOSA",
-                    product: "AC"
-                },
-                {
-                    id: 1150,
-                    description: "AZ Loan Account",
-                    shortname: "AZ Loan Account",
-                    product: "AC"
-                },
-                {
-                    id: 1160,
-                    description: "AZ Loan Account",
-                    shortname: "AZ Loan Accts",
-                    product: "AC"
-                },
-                {
-                    id: 1170,
-                    description: "AZ Loan Account",
-                    shortname: "AZ Loan Account",
-                    product: "AC"
-                },
-                {
-                    id: 1190,
-                    description: "AZ Deposits",
-                    shortname: "AZ Deposits",
-                    product: "AC"
-                },
-                {
-                    id: 1800,
-                    description: "DORMANT ACCOUNT -ADJUST",
-                    shortname: "DORMANT AC",
-                    product: "AC"
-                },
-                {
-                    id: 1999,
-                    description: " Current Accounts",
-                    shortname: "Curr Acct",
-                    product: "AC"
-                },
-                {
-                    id: 2000,
-                    description: " Vostro Accounts",
-                    shortname: "Vostro Accounts",
-                    product: "AC"
-                },
-                {
-                    id: 2001,
-                    description: "Vostro Account",
-                    shortname: "Vostro Account",
-                    product: "AC"
-                },
-                {
-                    id: 2999,
-                    description: " Vostro Accounts",
-                    shortname: "Vostro Accounts",
-                    product: "AC"
-                },
-                {
-                    id: 3000,
-                    description: "AA Loan Category Start",
-                    shortname: "AA Loan Start",
-                    product: "AC"
-                },
-                {
-                    id: 3001,
-                    description: "Agric Land Purchse",
-                    shortname: "Agric Land Pur",
-                    product: "AC"
-                },
-                {
-                    id: 3002,
-                    description: "Agric Land Development",
-                    shortname: "Agric Dev",
-                    product: "AC"
-                },
-                {
-                    id: 3003,
-                    description: "House Loan Staff",
-                    shortname: "House Loan",
-                    product: "AC"
-                },
-                {
-                    id: 3004,
-                    description: "Car Loan - Staff",
-                    shortname: "Car Loan Stf",
-                    product: "AC"
-                },
-                {
-                    id: 3005,
-                    description: "Study Loan Staff",
-                    shortname: "Study Loan",
-                    product: "AC"
-                },
-                {
-                    id: 3006,
-                    description: "Staff Personal Loan",
-                    shortname: "Staff Pers Loan",
-                    product: "AC"
-                },
-                {
                     id: 3007,
-                    description: "Development Loan",
-                    shortname: "Dev. Loan",
-                    product: "AC"
+                    description: "SaccoDev",
+                    shortname: "SaccoDev"
                 },
                 {
                     id: 3008,
-                    description: "Express Loan",
-                    shortname: "ExPress Loan",
-                    product: "AC"
+                    description: "SaccoExpress",
+                    shortname: "SaccoExpress"
                 },
                 {
                     id: 3009,
-                    description: "Micro Loan",
-                    shortname: "Micro Loan",
-                    product: "AC"
+                    description: "SaccoMicro",
+                    shortname: "SaccoMicro"
                 },
                 {
                     id: 3010,
-                    description: "Smart Device Loan",
-                    shortname: "Smart Device",
-                    product: "AC"
+                    description: "SaccoSmart",
+                    shortname: "SaccoSmart"
                 },
                 {
                     id: 3011,
-                    description: "Education Loan",
-                    shortname: "Education Loan",
-                    product: "AC"
+                    description: "SaccoEducation",
+                    shortname: "SaccoEducation"
                 },
                 {
                     id: 3012,
-                    description: "Super Loan",
-                    shortname: "Super Loan",
-                    product: "AC"
+                    description: "SaccoSuper",
+                    shortname: "SaccoSuper"
                 },
                 {
                     id: 3013,
-                    description: "Asset Financing",
-                    shortname: "Asset Finance",
-                    product: "AC"
-                },
-                {
-                    id: 3014,
-                    description: "M-Loan",
-                    shortname: "M-Loan",
-                    product: "AC"
-                },
-                {
-                    id: 3015,
-                    description: "FOSA Advance - Staff",
-                    shortname: "FOSA Advanc",
-                    product: "AC"
-                },
-                {
-                    id: 3016,
-                    description: "Sacco Mortgage",
-                    shortname: "Sacco Mortgage",
-                    product: "AC"
-                },
-                {
-                    id: 3017,
-                    description: "Guarantor Guaranteed",
-                    shortname: "Guarantor Loan",
-                    product: "AC"
-                },
-                {
-                    id: 3018,
-                    description: "FOSA Advance",
-                    shortname: "FOSA Advanc",
-                    product: "AC"
-                },
-                {
-                    id: 3019,
-                    description: "FOSA Advance - Laptop",
-                    shortname: "Laptop",
-                    product: "AC"
-                },
-                {
-                    id: 3020,
-                    description: "SaccoMicro-15%",
-                    shortname: "SaccoMicro-15%",
-                    product: "AC"
+                    description: "SaccoAsset",
+                    shortname: "SaccoAsset"
                 },
                 {
                     id: 3021,
-                    description: "Karibu Loan",
-                    shortname: "Karibu Loan",
-                    product: "AC"
+                    description: "KaribuLoan",
+                    shortname: "KaribuLoan"
                 },
                 {
                     id: 3022,
-                    description: "Boresha Loan",
-                    shortname: "Boresha Loan",
-                    product: "AC"
-                },
-                {
-                    id: 3999,
-                    description: "AA Loan Category End",
-                    shortname: "AA Loan End",
-                    product: "AC"
-                },
-                {
-                    id: 6000,
-                    description: "Chama Main Savings",
-                    shortname: "Chama Savings",
-                    product: "AC"
-                },
-                {
-                    id: 6001,
-                    description: "Main Scheme",
-                    shortname: "MainSav",
-                    product: "AC"
-                },
-                {
-                    id: 6002,
-                    description: "Risk Management Fund",
-                    shortname: "RiskFund",
-                    product: "AC"
-                },
-                {
-                    id: 6003,
-                    description: "Education Scheme (Savings)",
-                    shortname: "EducSav",
-                    product: "AC"
-                },
-                {
-                    id: 6004,
-                    description: "Mortgage Finance Scheme",
-                    shortname: "MortgSav",
-                    product: "AC"
-                },
-                {
-                    id: 6005,
-                    description: "Micro Credit Scheme",
-                    shortname: "MicroSav",
-                    product: "AC"
-                },
-                {
-                    id: 6006,
-                    description: "FOSA Savings Ac",
-                    shortname: "Fosa",
-                    product: "AC"
-                },
-                {
-                    id: 6007,
-                    description: "FOSA Chama",
-                    shortname: "FOSA Chama",
-                    product: "AC"
-                },
-                {
-                    id: 6008,
-                    description: "FOSA Savings Ac- Staff",
-                    shortname: "Fosa",
-                    product: "AC"
-                },
-                {
-                    id: 6009,
-                    description: "Minor Savings Account",
-                    shortname: "MinorSav",
-                    product: "AC"
-                },
-                {
-                    id: 6010,
-                    description: "Medical Insurance Premium",
-                    shortname: "Insurance Prem",
-                    product: "AC"
-                },
-                {
-                    id: 6011,
-                    description: "Share Capital Deposit",
-                    shortname: "ShareCapt",
-                    product: "AC"
-                },
-                {
-                    id: 6012,
-                    description: "FOSA Savings Investment",
-                    shortname: "Investment",
-                    product: "AC"
-                },
-                {
-                    id: 6049,
-                    description: "Saving Accounts",
-                    shortname: "Saving Accounts",
-                    product: "AC"
-                }, {
-                    id: 6099,
-                    description: " Saving Accounts",
-                    shortname: "Saving Accounts",
-                    product: "AC"
-                },
-                {
-                    id: 6100,
-                    description: "Mortgage Savings Account",
-                    shortname: "MG savings acct",
-                    product: "AC"
-                },
-                {
-                    id: 6150,
-                    description: "Time Saving Accounts",
-                    shortname: "Time saving act",
-                    product: "AC"
-                },
-                {
-                    id: 6300,
-                    description: "Retirement Saving Accounts",
-                    shortname: "Retire sav acct",
-                    product: "AC"
-                },
-                {
-                    id: 6500,
-                    description: "Savings - Passbook",
-                    shortname: "Savings-P.Book",
-                    product: "AC"
-                },
-                {
-                    id: 6999,
-                    description: "Drawdown Account",
-                    shortname: "Drawdown Acct.",
-                    product: "AC"
-                },
-                {
-                    id: 7000,
-                    description: " Share Accounts ",
-                    shortname: "Share Account",
-                    product: "AC"
-                },
-                {
-                    id: 7310,
-                    description: "Initial Share",
-                    shortname: "Initial Share",
-                    product: "AC"
+                    description: "BoreshaLoan",
+                    shortname: "BoreshaLoan"
                 }
             ]);
         });
@@ -1113,7 +697,7 @@ LoancategoryProvider = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhonepopupPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_http_http__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mnopaspop_mnopaspop__ = __webpack_require__(117);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1376,10 +960,11 @@ NonmemberotpPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_loancategory_loancategory__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_http_http__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__ = __webpack_require__(184);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -1403,12 +988,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LoanformPage = (function () {
-    function LoanformPage(socket, loanCategoryHelper, socketHelper, storage, viewCtrl, navCtrl, navParams) {
+    function LoanformPage(socket, loanCategoryHelper, httpHelper, socketHelper, storage, toastCtrl, viewCtrl, navCtrl, navParams) {
         this.socket = socket;
         this.loanCategoryHelper = loanCategoryHelper;
+        this.httpHelper = httpHelper;
         this.socketHelper = socketHelper;
         this.storage = storage;
+        this.toastCtrl = toastCtrl;
         this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -1417,9 +1005,21 @@ var LoanformPage = (function () {
             { security: "Self", value: "Self" },
             { security: "Deed", value: "Deed" }
         ];
+        this.loanRequestData = {};
     }
     LoanformPage.prototype.ionViewDidLoad = function () {
         var _this = this;
+        // memberdata
+        this.storage.get('ID').then(function (data) {
+            console.log("ID:", data);
+            _this.httpHelper.singleUser(data).then(function (data) {
+                console.log("SINGLE USER:", data);
+                _this.loanRequestData = {
+                    phoneNumber: data.user.phonenumber,
+                    memberNumber: data.user.membernumber
+                };
+            });
+        });
         // GET LOAN CATEGORIES
         this.loanCategoryHelper.getCategories().then(function (data) {
             _this.loanCategory = data;
@@ -1428,8 +1028,25 @@ var LoanformPage = (function () {
         console.log("LOAN CATEGORIES:", this.loanCategory);
         // GET LOAN DATA
         this.loanData = this.navParams.get('loanData');
-        console.log("LOAN DATA:", this.loanData);
-        // memberdata
+        console.log("LOAN DATA:", this.loanData[0]);
+        switch (this.loanData[0]) {
+            case "DevelopmentLoan":
+                this.loanRequestData.type = "SaccoDev";
+                break;
+            case "EducLoan":
+                this.loanRequestData.type = "SaccoEducation";
+                break;
+            case "MicroLoan":
+                this.loanRequestData.type = "SaccoMicro";
+                break;
+            case "ExpressLoan":
+                this.loanRequestData.type = "SaccoExpress";
+                break;
+            case "SmartLifeLoan":
+                this.loanRequestData.type = "SaccoSmart";
+                break;
+        }
+        console.log("LOAN REQ DAT:", this.loanRequestData);
         this.storage.get('memberData').then(function (data) {
             _this.memberNo = data['MB.CUST.NO'];
             _this.memberPhone = data['MB.CELL.NO..'];
@@ -1437,6 +1054,9 @@ var LoanformPage = (function () {
                 memberNumber: _this.memberNo,
                 memberPhone: _this.memberPhone
             };
+            _this.loanRequestData.memberNumber = _this.memberNo;
+            _this.loanRequestData.memberPhone = _this.memberPhone;
+            console.log("MEMBER DATA:", _this.loanRequestData);
         });
         // get savings bal
         this.storage.get('SavingsBalance').then(function (data) {
@@ -1444,13 +1064,33 @@ var LoanformPage = (function () {
             _this.mainSavings = _this.savingsBalance.filter(function (el) {
                 return el[0] == 'MainSav';
             })[0];
+            console.log("MAIN SAVINGS:", _this.mainSavings);
         });
         this.typeLimit = this.navParams.get('loanData');
         this.loanType = this.typeLimit[0];
         this.loanLimit = this.typeLimit[1];
     };
+    LoanformPage.prototype.onTerm = function () {
+        this.loanRequestData.term = this.loanTerm;
+    };
     LoanformPage.prototype.onAmount = function (ev) {
+        // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
+        console.log("AMOUNT:", this.amountValue);
+        console.log("LOAN LIMIT:", this.loanLimit);
+        var limit = parseInt(this.loanLimit.replace(/,/g, ''));
+        console.log("LIMIT:", limit);
+        if (this.amountValue > limit) {
+            var toast = this.toastCtrl.create({
+                // duration:3000,
+                message: "Your requested amount exeeds your loan eligibility.",
+                position: "middle",
+                showCloseButton: true,
+                closeButtonText: "Recify Amount"
+            });
+            toast.present();
+        }
         console.log(ev.target.value);
+        this.loanRequestData.amount = this.amountValue;
         var amount = this.amountValue;
         this.requestData = __assign({}, amount);
         // console.log("REQUESTED DATA:",this.requestData)
@@ -1467,6 +1107,17 @@ var LoanformPage = (function () {
             this.security = '';
         }
     };
+    LoanformPage.prototype.onGuarantors = function () {
+        // let guarantors:any[]=[]
+        // guarantors = this.guarantors.split(',')
+        this.loanRequestData.guarantors = this.guarantors.split(',');
+    };
+    LoanformPage.prototype.onPurpose = function () {
+        this.loanRequestData.purpose = this.loanPurpose;
+    };
+    LoanformPage.prototype.resize = function () {
+        this.myInput.nativeElement.style.height = this.myInput.nativeElement.scrollHeight + 'px';
+    };
     /*
     onAmount(ev){
       // console.log(ev.target.value)
@@ -1480,22 +1131,46 @@ var LoanformPage = (function () {
     LoanformPage.prototype.onSelect = function (security) {
         console.log("SECURITY: ", security);
     };
+    LoanformPage.prototype.loanSubmit = function () {
+        var _this = this;
+        console.log("LOAN SUBMIT DATA:", this.loanRequestData);
+        // CHECK IF AMOUNT IS > LOAN ELIGIBILITY
+        // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
+        if (this.amountValue > this.loanLimit) {
+            var toast = this.toastCtrl.create({
+                // duration:3000,
+                message: "Your requested amount exeeds your loan eligibility.",
+                position: "middle",
+                showCloseButton: false,
+                closeButtonText: "Rectify Amount"
+            });
+            toast.present();
+        }
+        else if (this.amountValue < this.loanLimit) {
+            // CHECK IF SUM OF GUARANTORS' SAVINGS IS MORE THAN LOAN AMOUNT
+            this.socketHelper.loanApplication(this.loanRequestData)
+                .then(function () {
+                _this.socket.on('loanApplicationFeedback', function (data) {
+                    console.log("LOAN APPLICATION FEEDBACK:", data);
+                });
+            });
+        }
+    };
     return LoanformPage;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myInput'),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
+], LoanformPage.prototype, "myInput", void 0);
 LoanformPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-        selector: 'page-loanform',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/'\n<ion-header>\n  <ion-navbar hideBackButton>\n    <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <h3>Your are eligible for a {{loanType}} worth {{loanLimit}}</h3>  \n\n  <ion-list>\n\n    <!--\n    <ion-item>\n      <ion-label stacked>Interest Rate</ion-label>\n      <ion-input placeholder="%" type="text"></ion-input>\n    </ion-item>\n    -->\n\n    <ion-item>\n      <ion-label stacked>Amount</ion-label>\n      <ion-input placeholder="Ksh"type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> \n      <!-- (keyup.enter)="onAmount($event)" -->\n    </ion-item>\n\n    <!--\n    <ion-item>\n      <ion-label stacked>Period in months</ion-label>\n      <ion-input type="text"></ion-input>\n    </ion-item> \n    --> \n\n    <ion-item >\n      <ion-label stacked>Security</ion-label>\n        <ion-select [(ngModel)]="security">\n          <ion-option *ngFor="let data of securityArray" value="{{data.value}}" (ionSelect)="onSelect(data.value)" >{{data.security}}</ion-option>  \n        </ion-select>        \n    </ion-item>      \n\n  </ion-list>  \n\n  <button ion-button block color="faceColor" (click)="loanSubmit()">Submit Loan Request</button>\n\n  <ion-fab left bottom>\n    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>\n  </ion-fab> \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/,
+        selector: 'page-loanform',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/'\n<ion-header> \n  <ion-navbar hideBackButton>\n    <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding> \n  <h3>Your are eligible for a {{loanType}} worth {{loanLimit}}</h3>  \n\n  <ion-list>\n\n    <!--\n    <ion-item>\n      <ion-label stacked>Interest Rate</ion-label>\n      <ion-input placeholder="%" type="text"></ion-input>\n    </ion-item>\n    -->\n\n    <ion-item>\n      <ion-label stacked>Amount</ion-label>\n      <ion-input placeholder="Ksh" type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> \n      <!-- (keyup.enter)="onAmount($event)" -->\n    </ion-item>\n\n    \n    <ion-item>\n      <ion-label stacked>Period in months</ion-label>\n      <ion-input placeholder="Months" type="text" [(ngModel)]="loanTerm" (keyup)="onTerm()"></ion-input>\n    </ion-item> \n  \n    <!--\n    <ion-item>\n      <ion-label stacked>Security</ion-label>\n        <ion-select [(ngModel)]="security">\n          <ion-option *ngFor="let data of securityArray" value="{{data.value}}" (ionSelect)="onSelect(data.value)" >{{data.security}}</ion-option>  \n        </ion-select>        \n    </ion-item> \n    -->\n\n    <ion-item>\n      <ion-label stacked>Enter Guarantors</ion-label>\n      <ion-input placeholder="12345, 56789" type="text" [(ngModel)]="guarantors" (keyup)="onGuarantors()"></ion-input>\n    </ion-item> \n\n      \n      <ion-label stacked>Loan Purpose</ion-label>\n        <textarea \n        (keyup)="onPurpose()"\n        rows="5" cols="33"\n        #myInput \n        id="txtarea" maxLength="500" \n        (keyup)="resize()" \n        [(ngModel)]="loanPurpose"></textarea>\n    \n\n  </ion-list>  \n\n  <button ion-button block color="faceColor" (click)="loanSubmit()">Submit Loan Request</button>\n\n  <ion-fab left bottom>\n    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>\n  </ion-fab> \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"],
-        __WEBPACK_IMPORTED_MODULE_5__providers_loancategory_loancategory__["a" /* LoancategoryProvider */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */],
-        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__["a" /* LoancategoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__["a" /* LoancategoryProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_http_http__["a" /* HttpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_http_http__["a" /* HttpProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _k || Object])
 ], LoanformPage);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 //# sourceMappingURL=loanform.js.map
 
 /***/ }),
@@ -1751,7 +1426,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(186);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_splash_screen__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_t24_t24__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_http_http__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_http_http__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_socket_socket__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_popover_popover__ = __webpack_require__(228);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_lock_lock__ = __webpack_require__(183);
@@ -1764,7 +1439,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_loanform_loanform__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_guarantorview_guarantorview__ = __webpack_require__(232);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_guaranteeview_guaranteeview__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng_socket_io__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng_socket_io__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_ng_socket_io__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_loancategory_loancategory__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1935,77 +1610,7 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 330:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return T24Provider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(19);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var T24Provider = (function () {
-    function T24Provider(http, storage) {
-        this.http = http;
-        this.storage = storage;
-        this.offline = {
-            balanceEnquiry: "http://localhost:3000/balanceEnquiry",
-        };
-    }
-    T24Provider.prototype.balanceEnquiry = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]();
-            headers.append("Accept", "application/json");
-            headers.append("Content-Type", "application/json");
-            _this.storage.get('loginData')
-                .then(function (val) {
-                var body = __assign({}, val);
-                _this.http.post(_this.offline.balanceEnquiry, body, { headers: headers })
-                    .subscribe(function (res) {
-                    console.log(res.json);
-                    resolve(res.json());
-                }, function (err) {
-                    reject(err);
-                });
-            });
-        });
-    };
-    return T24Provider;
-}());
-T24Provider = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */],
-        __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
-], T24Provider);
-
-//# sourceMappingURL=t24.js.map
-
-/***/ }),
-
-/***/ 38:
+/***/ 31:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2047,6 +1652,7 @@ var HttpProvider = (function () {
             loginURL: "http://localhost:3000/login",
             logoutURL: "http://localhost:3000/logout",
             getUserURL: "http://localhost:3000/getuser",
+            singleUserURL: "http://localhost:3000/singleUser/",
             protectedURL: "http://localhost:3000/protected",
             submitPhoneNumberURL: "http://localhost:3000/submitPhoneNumber",
             submitOtpURL: "http://localhost:3000/submitOtp",
@@ -2201,6 +1807,17 @@ var HttpProvider = (function () {
             _this.http.post(_this.offline.submitPhoneNumberURL, phoneNumber, { headers: headers })
                 .subscribe(function (res) {
                 console.log('RES: ', res.json());
+                _this.storage.set('ID', res.json().docs._id);
+                resolve(res.json());
+            });
+        });
+    };
+    HttpProvider.prototype.singleUser = function (id) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.offline.singleUserURL + id)
+                .subscribe(function (res) {
+                console.log("SINGLE USER:", res.json());
                 resolve(res.json());
             });
         });
@@ -2308,13 +1925,83 @@ HttpProvider = __decorate([
 
 /***/ }),
 
+/***/ 330:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return T24Provider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(19);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var T24Provider = (function () {
+    function T24Provider(http, storage) {
+        this.http = http;
+        this.storage = storage;
+        this.offline = {
+            balanceEnquiry: "http://localhost:3000/balanceEnquiry",
+        };
+    }
+    T24Provider.prototype.balanceEnquiry = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]();
+            headers.append("Accept", "application/json");
+            headers.append("Content-Type", "application/json");
+            _this.storage.get('loginData')
+                .then(function (val) {
+                var body = __assign({}, val);
+                _this.http.post(_this.offline.balanceEnquiry, body, { headers: headers })
+                    .subscribe(function (res) {
+                    console.log(res.json);
+                    resolve(res.json());
+                }, function (err) {
+                    reject(err);
+                });
+            });
+        });
+    };
+    return T24Provider;
+}());
+T24Provider = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */],
+        __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+], T24Provider);
+
+//# sourceMappingURL=t24.js.map
+
+/***/ }),
+
 /***/ 47:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocketProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_socket_io__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_socket_io__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ng_socket_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_ng_socket_io__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(19);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
@@ -2338,6 +2025,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var SocketProvider = (function () {
+    // SOCKET CONNECTION AND LOCAL STORAGE SETUP 
     function SocketProvider(socket, storage) {
         this.socket = socket;
         this.storage = storage;
@@ -2599,6 +2287,12 @@ var SocketProvider = (function () {
         // })     
         return new Promise(function (resolve, reject) {
             resolve(_this.socket.emit("loanBalances", data));
+        });
+    };
+    SocketProvider.prototype.loanApplication = function (data) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            resolve(_this.socket.emit("loanApplication", data));
         });
     };
     SocketProvider.prototype.depositFromMpesa = function (data) {

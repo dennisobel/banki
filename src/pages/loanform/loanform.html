@@ -1,12 +1,12 @@
 
-<ion-header>
+<ion-header> 
   <ion-navbar hideBackButton>
     <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding> 
   <h3>Your are eligible for a {{loanType}} worth {{loanLimit}}</h3>  
 
   <ion-list>
@@ -20,23 +20,40 @@
 
     <ion-item>
       <ion-label stacked>Amount</ion-label>
-      <ion-input placeholder="Ksh"type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> 
+      <ion-input placeholder="Ksh" type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> 
       <!-- (keyup.enter)="onAmount($event)" -->
     </ion-item>
 
-    <!--
+    
     <ion-item>
       <ion-label stacked>Period in months</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input placeholder="Months" type="text" [(ngModel)]="loanTerm" (keyup)="onTerm()"></ion-input>
     </ion-item> 
-    --> 
-
-    <ion-item >
+  
+    <!--
+    <ion-item>
       <ion-label stacked>Security</ion-label>
         <ion-select [(ngModel)]="security">
           <ion-option *ngFor="let data of securityArray" value="{{data.value}}" (ionSelect)="onSelect(data.value)" >{{data.security}}</ion-option>  
         </ion-select>        
-    </ion-item>      
+    </ion-item> 
+    -->
+
+    <ion-item>
+      <ion-label stacked>Enter Guarantors</ion-label>
+      <ion-input placeholder="12345, 56789" type="text" [(ngModel)]="guarantors" (keyup)="onGuarantors()"></ion-input>
+    </ion-item> 
+
+      
+      <ion-label stacked>Loan Purpose</ion-label>
+        <textarea 
+        (keyup)="onPurpose()"
+        rows="5" cols="33"
+        #myInput 
+        id="txtarea" maxLength="500" 
+        (keyup)="resize()" 
+        [(ngModel)]="loanPurpose"></textarea>
+    
 
   </ion-list>  
 

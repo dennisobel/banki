@@ -16,6 +16,7 @@ export class HttpProvider {
       loginURL:"http://localhost:3000/login",
       logoutURL:"http://localhost:3000/logout",
       getUserURL:"http://localhost:3000/getuser",
+      singleUserURL: "http://localhost:3000/singleUser/",
       protectedURL:"http://localhost:3000/protected",
       submitPhoneNumberURL: "http://localhost:3000/submitPhoneNumber",
       submitOtpURL: "http://localhost:3000/submitOtp",
@@ -199,6 +200,17 @@ submitPhoneNumber(phoneNumber) {
         this.http.post(this.offline.submitPhoneNumberURL,phoneNumber,{headers})
         .subscribe(res => {
             console.log('RES: ', res.json())
+            this.storage.set('ID',res.json().docs._id)
+            resolve(res.json())
+        })
+    })
+}
+
+singleUser(id){
+    return new Promise((resolve,reject) => {
+        this.http.get(this.offline.singleUserURL + id)
+        .subscribe(res => {
+            console.log("SINGLE USER:",res.json())
             resolve(res.json())
         })
     })
