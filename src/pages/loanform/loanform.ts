@@ -60,11 +60,11 @@ export class LoanformPage {
     this.storage.get('ID').then((data) => {
       console.log("ID:",data)
 
-      this.httpHelper.singleUser(data).then((data:any)=>{
-        console.log("SINGLE USER:",data)
+      this.httpHelper.singleUser(data).then((res:any)=>{
+        console.log("SINGLE USER:",res)
         this.loanRequestData = {
-          phoneNumber: data.user.phonenumber,
-          memberNumber: data.user.membernumber
+          phoneNumber: res.user.phonenumber,
+          memberNumber: res.user.membernumber
         }
       })
     }) 
@@ -138,7 +138,7 @@ export class LoanformPage {
 
     this.typeLimit = this.navParams.get('loanData');
     this.loanType = this.typeLimit[0]
-    this.loanLimit = this.typeLimit[1]    
+    this.loanLimit = parseInt(this.typeLimit[1].replace(/,/g, ''))
   }
 
   onTerm(){
@@ -152,11 +152,11 @@ export class LoanformPage {
     console.log("LOAN LIMIT:",this.loanLimit);
 
     // REMOVE COMMA
-    let limit = parseInt(this.loanLimit.replace(/,/g, ''))
+    // let limit = this.loanLimit
 
-    console.log("LIMIT:",limit)
+    // console.log("LIMIT:",limit)
 
-    if(this.amountValue > limit){
+    if(this.amountValue > this.loanLimit){
       let toast = this.toastCtrl.create({
           // duration:3000,
           message:"Your requested amount exeeds your loan eligibility.",
@@ -220,13 +220,13 @@ export class LoanformPage {
   }
 
   loanSubmit(){
-    console.log("LOAN SUBMIT DATA:",this.loanRequestData)
+    console.log("LOAN SUBMIT DATA:",this.loanRequestData);
     // CHECK IF AMOUNT IS > LOAN ELIGIBILITY
 
-    let limit = parseInt(this.loanLimit.replace(/,/g, ''))
+    // let limit = parseInt(this.loanLimit.replace(/,/g, ''));
 
     // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
-    if(this.amountValue > limit){
+    if(this.amountValue > this.loanLimit){
       let toast = this.toastCtrl.create({
           // duration:3000,
           message:"Your requested amount exeeds your loan eligibility.",
@@ -236,7 +236,7 @@ export class LoanformPage {
       })
 
       toast.present()
-    }else if(this.amountValue < this.loanLimit){
+    }else if(this.amountValue <= this.loanLimit){
       console.log("request loan")
       // CHECK IF SUM OF GUARANTORS' SAVINGS IS MORE THAN LOAN AMOUNT
       this.socketHelper.loanApplication(this.loanRequestData)
@@ -255,7 +255,7 @@ export class LoanformPage {
           
           let toast = this.toastCtrl.create({
               // duration:3000,
-              message:data,
+              message:feedback.toString(),
               position:"middle",
               showCloseButton:true,
               closeButtonText: "Close"
