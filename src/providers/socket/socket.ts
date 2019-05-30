@@ -309,6 +309,7 @@ getGuarantees(data){
   }  
 
   loanApplication(data){
+    console.log("inside loan application helper")
     return new Promise((resolve,reject)=>{
       resolve(this.socket.emit("loanApplication",data))
     })

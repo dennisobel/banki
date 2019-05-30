@@ -990,12 +990,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LoanformPage = (function () {
-    function LoanformPage(socket, loanCategoryHelper, httpHelper, socketHelper, storage, toastCtrl, viewCtrl, navCtrl, navParams) {
+    function LoanformPage(socket, loanCategoryHelper, httpHelper, socketHelper, storage, alertController, toastCtrl, viewCtrl, navCtrl, navParams) {
         this.socket = socket;
         this.loanCategoryHelper = loanCategoryHelper;
         this.httpHelper = httpHelper;
         this.socketHelper = socketHelper;
         this.storage = storage;
+        this.alertController = alertController;
         this.toastCtrl = toastCtrl;
         this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
@@ -1077,6 +1078,7 @@ var LoanformPage = (function () {
         // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
         console.log("AMOUNT:", this.amountValue);
         console.log("LOAN LIMIT:", this.loanLimit);
+        // REMOVE COMMA
         var limit = parseInt(this.loanLimit.replace(/,/g, ''));
         console.log("LIMIT:", limit);
         if (this.amountValue > limit) {
@@ -1135,23 +1137,39 @@ var LoanformPage = (function () {
         var _this = this;
         console.log("LOAN SUBMIT DATA:", this.loanRequestData);
         // CHECK IF AMOUNT IS > LOAN ELIGIBILITY
+        var limit = parseInt(this.loanLimit.replace(/,/g, ''));
         // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
-        if (this.amountValue > this.loanLimit) {
+        if (this.amountValue > limit) {
             var toast = this.toastCtrl.create({
                 // duration:3000,
                 message: "Your requested amount exeeds your loan eligibility.",
                 position: "middle",
-                showCloseButton: false,
+                showCloseButton: true,
                 closeButtonText: "Rectify Amount"
             });
             toast.present();
         }
         else if (this.amountValue < this.loanLimit) {
+            console.log("request loan");
             // CHECK IF SUM OF GUARANTORS' SAVINGS IS MORE THAN LOAN AMOUNT
             this.socketHelper.loanApplication(this.loanRequestData)
                 .then(function () {
+                console.log("succesfully requested loan.");
                 _this.socket.on('loanApplicationFeedback', function (data) {
                     console.log("LOAN APPLICATION FEEDBACK:", data);
+                    var feedback = data.split(",").filter(function (el) {
+                        return !el.includes('VR');
+                    });
+                    feedback.shift();
+                    console.log("FEEDBACK:", feedback);
+                    var toast = _this.toastCtrl.create({
+                        // duration:3000,
+                        message: data,
+                        position: "middle",
+                        showCloseButton: true,
+                        closeButtonText: "Close"
+                    });
+                    toast.present();
                 });
             });
         }
@@ -1160,17 +1178,25 @@ var LoanformPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('myInput'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
 ], LoanformPage.prototype, "myInput", void 0);
 LoanformPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'page-loanform',template:/*ion-inline-start:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/'\n<ion-header> \n  <ion-navbar hideBackButton>\n    <img height="150px" width="470px" src="assets/images/statementsheader.jpg"/>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding> \n  <h3>Your are eligible for a {{loanType}} worth {{loanLimit}}</h3>  \n\n  <ion-list>\n\n    <!--\n    <ion-item>\n      <ion-label stacked>Interest Rate</ion-label>\n      <ion-input placeholder="%" type="text"></ion-input>\n    </ion-item>\n    -->\n\n    <ion-item>\n      <ion-label stacked>Amount</ion-label>\n      <ion-input placeholder="Ksh" type="text" [(ngModel)]="amountValue" (keyup)="onAmount($event)"></ion-input> \n      <!-- (keyup.enter)="onAmount($event)" -->\n    </ion-item>\n\n    \n    <ion-item>\n      <ion-label stacked>Period in months</ion-label>\n      <ion-input placeholder="Months" type="text" [(ngModel)]="loanTerm" (keyup)="onTerm()"></ion-input>\n    </ion-item> \n  \n    <!--\n    <ion-item>\n      <ion-label stacked>Security</ion-label>\n        <ion-select [(ngModel)]="security">\n          <ion-option *ngFor="let data of securityArray" value="{{data.value}}" (ionSelect)="onSelect(data.value)" >{{data.security}}</ion-option>  \n        </ion-select>        \n    </ion-item> \n    -->\n\n    <ion-item>\n      <ion-label stacked>Enter Guarantors</ion-label>\n      <ion-input placeholder="12345, 56789" type="text" [(ngModel)]="guarantors" (keyup)="onGuarantors()"></ion-input>\n    </ion-item> \n\n      \n      <ion-label stacked>Loan Purpose</ion-label>\n        <textarea \n        (keyup)="onPurpose()"\n        rows="5" cols="33"\n        #myInput \n        id="txtarea" maxLength="500" \n        (keyup)="resize()" \n        [(ngModel)]="loanPurpose"></textarea>\n    \n\n  </ion-list>  \n\n  <button ion-button block color="faceColor" (click)="loanSubmit()">Submit Loan Request</button>\n\n  <ion-fab left bottom>\n    <button ion-fab mini color="gold" (click)="onClose()"><ion-icon name="md-close"></ion-icon></button>\n  </ion-fab> \n</ion-content>\n'/*ion-inline-end:"/home/dennis/Desktop/desktopstuff/apps/ionic/iTellerProject/banki/src/pages/loanform/loanform.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__["a" /* LoancategoryProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__["a" /* LoancategoryProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__providers_http_http__["a" /* HttpProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_http_http__["a" /* HttpProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _k || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ng_socket_io__["Socket"],
+        __WEBPACK_IMPORTED_MODULE_6__providers_loancategory_loancategory__["a" /* LoancategoryProvider */],
+        __WEBPACK_IMPORTED_MODULE_5__providers_http_http__["a" /* HttpProvider */],
+        __WEBPACK_IMPORTED_MODULE_4__providers_socket_socket__["a" /* SocketProvider */],
+        __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ToastController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]])
 ], LoanformPage);
 
-var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 //# sourceMappingURL=loanform.js.map
 
 /***/ }),
@@ -2291,6 +2317,7 @@ var SocketProvider = (function () {
     };
     SocketProvider.prototype.loanApplication = function (data) {
         var _this = this;
+        console.log("inside loan application helper");
         return new Promise(function (resolve, reject) {
             resolve(_this.socket.emit("loanApplication", data));
         });

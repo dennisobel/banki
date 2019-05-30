@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { IonicPage, NavController, ViewController, ToastController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, AlertController, ToastController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Socket } from 'ng-socket-io';
 import { SocketProvider } from "../../providers/socket/socket";
@@ -48,6 +48,7 @@ export class LoanformPage {
     private httpHelper: HttpProvider,
     private socketHelper: SocketProvider,
     private storage: Storage,
+    private alertController: AlertController,
     private toastCtrl: ToastController,
     private viewCtrl: ViewController,
     private navCtrl: NavController, 
@@ -66,7 +67,7 @@ export class LoanformPage {
           memberNumber: data.user.membernumber
         }
       })
-    })
+    }) 
 
     // GET LOAN CATEGORIES
     this.loanCategoryHelper.getCategories().then(data => {
@@ -150,6 +151,7 @@ export class LoanformPage {
     console.log("AMOUNT:",this.amountValue);
     console.log("LOAN LIMIT:",this.loanLimit);
 
+    // REMOVE COMMA
     let limit = parseInt(this.loanLimit.replace(/,/g, ''))
 
     console.log("LIMIT:",limit)
@@ -221,26 +223,48 @@ export class LoanformPage {
     console.log("LOAN SUBMIT DATA:",this.loanRequestData)
     // CHECK IF AMOUNT IS > LOAN ELIGIBILITY
 
+    let limit = parseInt(this.loanLimit.replace(/,/g, ''))
+
     // CHECK IF LOAN AMOUNT EXCEEDS LOAN ELIGIBILITY
-    if(this.amountValue > this.loanLimit){
+    if(this.amountValue > limit){
       let toast = this.toastCtrl.create({
           // duration:3000,
           message:"Your requested amount exeeds your loan eligibility.",
           position:"middle",
-          showCloseButton:false,
+          showCloseButton:true,
           closeButtonText: "Rectify Amount"
       })
 
       toast.present()
     }else if(this.amountValue < this.loanLimit){
+      console.log("request loan")
       // CHECK IF SUM OF GUARANTORS' SAVINGS IS MORE THAN LOAN AMOUNT
       this.socketHelper.loanApplication(this.loanRequestData)
       .then(()=>{
+        console.log("succesfully requested loan.")
         this.socket.on('loanApplicationFeedback',(data)=>{
           console.log("LOAN APPLICATION FEEDBACK:",data)
+
+          let feedback = data.split(",").filter((el)=>{
+            return !el.includes('VR')
+          })
+
+          feedback.shift()
+
+          console.log("FEEDBACK:",feedback)
+          
+          let toast = this.toastCtrl.create({
+              // duration:3000,
+              message:data,
+              position:"middle",
+              showCloseButton:true,
+              closeButtonText: "Close"
+          })
+    
+          toast.present()          
         })
       })
     
     }
   }
-}
+} 
